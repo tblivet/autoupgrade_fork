@@ -1,0 +1,31 @@
+{
+  "name": "autoupgrade",
+  "version": "1.0.0",
+  "description": "![PHP tests](https://github.com/PrestaShop/autoupgrade/workflows/PHP%20tests/badge.svg) ![Upgrades](https://github.com/PrestaShop/autoupgrade/workflows/Upgrades/badge.svg) [![Latest Stable Version](https://poser.pugx.org/PrestaShop/autoupgrade/v)](//packagist.org/packages/PrestaShop/autoupgrade) [![Total Downloads](https://poser.pugx.org/PrestaShop/autoupgrade/downloads)](//packagist.org/packages/PrestaShop/autoupgrade) [![GitHub license](https://img.shields.io/github/license/PrestaShop/autoupgrade)](https://github.com/PrestaShop/autoupgrade/LICENSE.md)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "watch": "sass --watch --style compressed --source-map scss/styles.scss:css/styles.css",
+    "lint:scss": "npx stylelint scss/**/*.scss",
+    "lint-fix:scss": "npx stylelint --fix scss/**/*.scss",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrestaShop/autoupgrade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrestaShop/autoupgrade/issues"
+  },
+  "homepage": "https://github.com/PrestaShop/autoupgrade#readme",
+  "devDependencies": {
+    "@prestashopcorp/stylelint-config": "^0.1.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.77.8"
+  }
+}

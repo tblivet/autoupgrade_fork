@@ -15,3 +15,6 @@ vendor/
 /tests/UI/report.json
 /tests/UI/reports/
 /tests/UI/test-results/
+
+## Node modules
+node_modules

@@ -1,0 +1,18 @@
+@use "../variables" as *;
+
+$e: ".badge";
+
+#{$ua-prefix} {
+  #{$e} {
+    --ua-badge-color: #1D1D1B;
+    --ua-badge-background-color: #D1DCFC;
+    all: unset;
+    padding: 0.125rem 0.5rem;
+    background-color: var(--ua-badge-background-color);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ua-badge-color);
+    line-height: 1.4;
+  }
+}

@@ -1,0 +1,36 @@
+@use "../variables" as *;
+
+$e: ".radio";
+
+#{$ua-prefix} {
+  #{$e} {
+    --ua-radio-border-color: #1D1D1B;
+    --ua-radio-background-color-checked: #1D1D1B;
+    --ua-radio-border-color-checked: #1D1D1B;
+    --ua-radio-border-color-disabled: #BBBBBB;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    background-clip: content-box;
+    border: 2px solid var(--ua-radio-border-color);
+    border-radius: 50%;
+    /* stylelint-disable-next-line */
+    outline: none !important;
+    line-height: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+  
+    &:checked {
+      padding: 3px;
+      background-color: var(--ua-radio-background-color-checked);
+      border: 2px solid var(--ua-radio-border-color-checked);
+    }
+    
+    &:disabled {
+      border-color: var(--ua-radio-border-color-disabled);
+    }
+  }
+}
