@@ -104,16 +104,16 @@ $e: ".radio-card";
     }
 
     &__disabled-message {
-      display: none;
       position: absolute;
-      left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      left: 50%;
+      display: none;
       padding: 0.5rem 0.75rem;
-      font-size: 0.875rem;
-      line-height: 1.4em;
-      color: var(--ua-radio-card-disabled-message-color);
       background-color: var(--ua-radio-card-disabled-message-background-color);
+      transform: translate(-50%, -50%);
+      font-size: 0.875rem;
+      color: var(--ua-radio-card-disabled-message-color);
+      line-height: 1.4em;
     }
 
     &__local-archive {
@@ -121,8 +121,8 @@ $e: ".radio-card";
     }
     
     &--disabled {
-      cursor: not-allowed;
       position: relative;
+      cursor: not-allowed;
       
       #{$e}__title {
         color: var(--ua-radio-card-title-color-disabled);
