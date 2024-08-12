@@ -1,0 +1,56 @@
+@use "../variables" as *;
+
+#{$ua-prefix} {
+  --ua-typography-color: #1d1d1b;
+  --ua-link-color: #1d1d1b;
+  --ua-link-hover-color: #1d1d1b;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: var(--ua-typography-color);
+  }
+
+  .h1 {
+    margin-block: 0 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .h2 {
+    margin-block: 0 1rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .h3 {
+    margin-block: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: var(--ua-link-color);
+    text-decoration: underline;
+    text-underline-offset: 0.125rem;
+    transition: text-underline-offset 0.15s;
+
+    &:hover {
+      color: var(--ua-link-hover-color);
+      text-underline-offset: 0.25rem;
+    }
+  }
+}

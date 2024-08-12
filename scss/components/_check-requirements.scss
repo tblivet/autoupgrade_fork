@@ -1,0 +1,87 @@
+@use "../mixins" as *;
+@use "../variables" as *;
+
+$e: ".check-requirements";
+
+#{$ua-prefix} {
+  #{$e} {
+    --ua-requirements-background-color: #f7f7f7;
+    --ua-requirements-loader-color: #1d1d1b;
+    --ua-requirements-loader-dot-color: #5C92AA;
+    background-color: var(--ua-requirements-background-color);
+    padding: 1rem;
+    margin-block-start: 0.5rem;
+
+    &__loader {
+      position: relative;
+      text-align: center;
+      width: 1.625rem;
+      height: 1.625rem;
+      margin-inline: auto;
+      margin-block-end: 1rem;
+      background:
+        linear-gradient(
+            var(--ua-requirements-background-color),
+            var(--ua-requirements-background-color)
+          )
+          padding-box,
+        conic-gradient(from 0, transparent, #78c4d8) border-box;
+      border-radius: 50em;
+      border: 0.1875rem solid transparent;
+      animation: rotate 1.5s linear infinite;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 0.1875rem;
+        height: 0.1875rem;
+        background: #5C92AA;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -100%);
+        border-radius: 50%;
+      }
+    }
+
+    &__loader-title {
+      text-align: center;
+      font-size: 0.875rem;
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--ua-requirements-loader-color);
+    }
+
+    &__message {
+      margin-block-end: 1rem;
+    }
+    
+    &__list {
+      margin-block-end: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__requirement {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      padding-inline-start: 2rem;
+      background-size: 1.5rem 1.5rem;
+      background-position: left center;
+      background-repeat: no-repeat;
+
+      &--nok {
+        background-image: url("../img/close.svg");
+      }
+      
+      &--warning {
+        background-image: url("../img/warning.svg");
+      }
+
+      &--ok {
+        background-image: url("../img/check.svg");
+      }
+    }
+  }
+}

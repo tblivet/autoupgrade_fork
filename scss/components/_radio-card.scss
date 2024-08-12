@@ -1,0 +1,146 @@
+@use "../variables" as *;
+
+$e: ".radio-card";
+
+#{$ua-prefix} {
+  #{$e} {
+    --ua-radio-card-title-color: #1D1D1B;
+    --ua-radio-card-title-color-disabled: #BBBBBB;
+    --ua-radio-card-message-color: #5E5E5E;
+    --ua-radio-card-message-color-disabled: #BBBBBB;
+    --ua-radio-card-disabled-message-color: #FFFFFF;
+    --ua-radio-card-disabled-message-background-color: #1D1D1B;
+    --ua-radio-card-border-radius: 0;
+    --ua-radio-card-border-color: #DDDDDD;
+    --ua-radio-card-border-color-hover: #1D1D1B;
+    --ua-radio-card-border-color-active: var(--ua-radio-card-border-color-hover);
+    --ua-radio-card-release-color: #1D1D1B;
+    --ua-radio-card-release-border-color: #DDDDDD;
+    --ua-radio-card-badge-color: #1D1D1B;
+    --ua-radio-card-badge-background-color: #D1DCFC;
+    all: unset;
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--ua-radio-card-border-color);
+    border-radius: var(--ua-radio-card-border-radius);
+    transition: border-color 0.15s;
+  
+    &:not(#{$e}--disabled) {
+      &:hover {
+        border-color: var(--ua-radio-card-border-color-hover);
+        cursor: pointer;
+      }
+    }
+  
+    &:has(input[type="radio"]:checked) {
+      border-color: var(--ua-radio-card-border-color-active);
+    }
+  
+    &__radio-wrapper {
+      flex-shrink: 0;
+    }
+    
+    &__infos-wrapper {
+      flex-grow: 1;
+    }
+
+    &__infos-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    &__title {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ua-radio-card-title-color);
+      line-height: 1.4;
+      margin-block: 0;
+    }
+
+    &__badge {
+      flex-shrink: 0;
+      padding: 0.125rem 0.5rem;
+      background-color: var(--ua-radio-card-badge-background-color);
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ua-radio-card-badge-color);
+      line-height: 1.4;
+    }
+    
+    &__message {
+      font-size: 0.875rem;
+      margin-block: 0.5rem 0;
+      color: var(--ua-radio-card-message-color);
+    }
+    
+    &__release-note {
+      display: inline-flex;
+      gap: 0.25rem;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.875rem;
+      color: var(--ua-radio-card-release-color);
+      line-height: 1.4;
+      text-decoration: none;
+      border-bottom: 1px solid var(--ua-radio-card-release-border-color);
+      
+      &:hover {
+        text-decoration: none;
+      }
+      
+      i {
+        font-size: 0.875rem;
+      }
+    }
+
+    &__disabled-message {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.4em;
+      color: var(--ua-radio-card-disabled-message-color);
+      background-color: var(--ua-radio-card-disabled-message-background-color);
+    }
+
+    &__local-archive {
+      padding-block-start: 0.5rem;
+    }
+    
+    &--disabled {
+      cursor: not-allowed;
+      position: relative;
+      
+      #{$e}__title {
+        color: var(--ua-radio-card-title-color-disabled);
+      }
+
+      #{$e}__message {
+        color: var(--ua-radio-card-message-color-disabled);
+      }
+
+      #{$e}__badge,
+      #{$e}__release-note {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      #{$e}__disabled-message {
+        display: block;
+      }
+    }
+  }
+}

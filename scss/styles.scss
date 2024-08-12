@@ -1,5 +1,8 @@
 @use "components";
 
+* {
+  box-sizing: border-box;
+}
 .upgradestep { margin-right: 5px;padding-left: 10px; padding-right: 5px;}
 .processing {border:2px outset gray;margin-top:1px;overflow: auto;}
 #infoStep {height:100px;}

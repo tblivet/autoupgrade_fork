@@ -1,0 +1,45 @@
+{% if (archiveFiles is defined and archiveFiles is not empty) and (xmlFiles is defined and xmlFiles is not empty) %}
+	<div class="local-archive">
+		<div class="form-group">
+			<label for="archive_prestashop">{{ 'Archive to use:'|trans({}) }}
+				<span class="require-star">*</span>
+			</label>
+
+			<select class="form-control" id="archive_prestashop" name="archive_prestashop" required>
+				<option value="">{{ 'Choose an archive'|trans({}) }}</option>
+				{% for file in archiveFiles %}
+					{% set fileName = file|replace({(downloadPath): ''}) %}
+					<option {% if archiveFileName == fileName %} selected {% endif %} value="{{ fileName }}">{{ fileName }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="archive_xml">{{ 'XML file to use:'|trans({}) }}
+				<span class="require-star">*</span>
+			</label>
+
+			<select class="form-control" id="archive_xml" name="archive_xml" required>
+				<option value="">{{ 'Choose an XML file'|trans({}) }}</option>
+				{% for file in xmlFiles %}
+					{% set fileName = file|replace({(downloadPath): ''}) %}
+					<option {% if xmlFileName == fileName %} selected {% endif %} value="{{ fileName }}">{{ fileName }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		{% if unableToFindVersion %}
+			<div class="alert alert-warning">
+				{{ "We couldn't find a PrestaShop version in the .zip file you uploaded. Please try again."|trans({}) }}
+			</div>
+		{% elseif xmlMismatch %}
+			<div class="alert alert-warning">
+				{{ "The PrestaShop version in your archive doesn’t match the one in XML file. Please fix this issue and try again."|trans({}) }}
+			</div>
+		{% endif %}
+	</div>
+{% else %}
+	<div class="alert alert-warning">
+    {{ 'No archive found in your admin/autoupgrade/download directory'|trans({}) }}
+  </div>
+{% endif %}

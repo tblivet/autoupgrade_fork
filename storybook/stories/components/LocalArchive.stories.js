@@ -23,16 +23,27 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import RadioBlock from "../../../views/templates/components/radio-block.html.twig";
+import LocalArchive from "../../../views/templates/components/local-archive.html.twig";
 
 export default {
-  component: RadioBlock,
+  component: LocalArchive,
   args: {
-    title: "Update your store",
-    message: "Update your store to benefit from the latest improvements, bug fixes and security patches.",
-    disabled: false,
-    badge: "Major version",
-    releaseNote: "https://github.com/PrestaShop/autoupgrade"
+    archiveFiles: [
+      "backup1.zip",
+      "backup2.zip",
+      "backup3.zip"
+    ],
+    archiveFileName: "backup1.zip",
+    xmlFiles: [
+      "xml1.xml",
+      "xml2.xml",
+      "xml2.xml"
+    ],
+    xmlFileName: "xml1.xml",
+    downloadPath:
+      "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
+    unableToFindVersion: false,
+    xmlMismatch: false,
   },
 };
 

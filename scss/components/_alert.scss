@@ -1,9 +1,9 @@
 @use "../variables" as *;
 
-$e: ".badge";
+$e: ".alert";
 
 #{$ua-prefix} {
   #{$e} {
-    
+    margin-block-end: 0;
   }
 }
