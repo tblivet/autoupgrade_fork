@@ -29,12 +29,21 @@ import CheckRequirements from "./CheckRequirements.stories";
 
 export default {
   component: RadioCard,
+  argTypes: {
+    badgeStatus: {
+      control: 'select',
+      options: ['major', 'minor'],
+    },
+  },
   args: {
+    radioCardId: "",
+    checked: false,
     title: "Update your store",
     message: "Update your store to benefit from the latest improvements, bug fixes and security patches.",
     disabled: false,
     disabledMessage: "No backup file found on your store.",
-    badge: "Major version",
+    badgeLabel: 'Major version',
+    badgeStatus: 'major',
     releaseNote: "https://github.com/PrestaShop/autoupgrade",
     archiveCard: false,
     checkRequirements: false,

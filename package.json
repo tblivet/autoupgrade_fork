@@ -7,9 +7,12 @@
     "test": "tests"
   },
   "scripts": {
-    "watch": "sass --watch --style compressed --source-map scss/styles.scss:css/styles.css",
+    "build": "npx prettier --write scss && sass --style compressed --source-map scss/styles.scss:css/styles.css",
     "lint:scss": "npx stylelint scss/**/*.scss",
     "lint-fix:scss": "npx stylelint --fix scss/**/*.scss",
+    "prettier": "npx prettier --write scss",
+    "prettier-check": "npx prettier --check scss",
+    "watch": "sass --watch --style compressed --source-map scss/styles.scss:css/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,292 +1,223 @@
 {% if not requirementsOk %}
-  <div class="check-requirements">
-    {% if checkingForRequirements %}
-      <div class="check-requirements__loader-wrapper">
-        <div class="check-requirements__loader">
-        </div>
+	<div class="check-requirements">
+		{% if checkingForRequirements %}
+			<div class="check-requirements__loader-wrapper">
+				<div class="check-requirements__loader"></div>
 
-        <div class="check-requirements__loader-title">
-          {{ "Checking requirements..."|trans({}) }}
-        </div>
-      </div>
-    {% else %}
-      <p class="check-requirements__title h3">
-        {{ "Update requirements"|trans({}) }}
-      </p>
+				<div class="check-requirements__loader-title">
+					{{ "Checking requirements..."|trans({}) }}
+				</div>
+			</div>
+		{% else %}
+			<p class="check-requirements__title h3">
+				{{ "Update requirements"|trans({}) }}
+			</p>
 
-      <p class="check-requirements__message">
-        {{ "Once all the following conditions are met, you can continue with the update."|trans({}) }}
-        <a href="#">{{ "Read more in the developer documentation."|trans({}) }}</a>
-      </p>
-      
-      <div class="check-requirements__list">
-        {% if phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_VALID') %}
-          <div class="check-requirements__requirement check-requirements__requirement{% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}--nok{% else %}--warning{% endif %}">
-            {% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
-                {{ 'Your current PHP version isn\'t compatible with your PrestaShop version. (Expected: %s - %s | Current: %s)'|trans([
-                    phpCompatibilityRange['php_min_version'],
-                    phpCompatibilityRange['php_max_version'],
-                    phpCompatibilityRange['php_current_version'],
-                ]) }}
-            {% else %}
-                {{ 'We were unable to check your PHP compatibility with the destination PrestaShop version.'|trans({}) }}
-            {% endif %}
-          </div>
+			<p class="check-requirements__message">
+        {{ 'Once all the following conditions are met, you can continue with the update. Read more in the [1]developer documentation[/1].'|trans({
+          '[1]' : '<a href="' ~ updateAssistantDocs ~'" target="_blank">',
+          '[/1]' : '</a>',
+        })|raw }}
+			</p>
+
+			<div class="check-requirements__list">
+        {# ERROR #}
+
+				{# PHP compatibility error #}
+				{% if phpRequirementsState and phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_VALID') %}
+					{% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
+					  <div class="check-requirements__requirement check-requirements__requirement--nok">
+							{{ 'Your current PHP version isn\'t compatible with PrestaShop %max_version%. (Expected: %min_version% - %max_version% | Current: %current_version%)'|trans({
+                '%min_version%': phpCompatibilityRange['php_min_version'],
+                '%max_version%': phpCompatibilityRange['php_max_version'],
+                '%current_version%': phpCompatibilityRange['php_current_version']
+              }) }}
+            </div>
+          {% endif %}
         {% endif %}
 
+        {# Root directory is writable #}
         {% if not rootDirectoryIsWritable %}
           <div class="check-requirements__requirement check-requirements__requirement--nok">
-            {{ 'Your store\'s root directory (%s) is writable (with appropriate CHMOD permissions).'|trans([rootDirectory]) }}
+            {{ 'Your store\'s root directory (%root_directory%) isn\'t writable. Provide write access to the user running PHP with appropriate permission & ownership.'|trans({
+              '%root_directory%': rootDirectory
+            }) }}
           </div>
         {% endif %}
 
+        {# Admin directory is writable #}
         {% if not adminDirectoryIsWritable %}
           <div class="check-requirements__requirement check-requirements__requirement--nok">
-            {{ "The \"/admin/autoupgrade\" directory isn't writable. Provide write access to the user running PHP with appropriate permission & ownership."|trans({}) }}
+            {{ 'The "/admin/autoupgrade" directory isn\'t writable. Provide write access to the user running PHP with appropriate permission & ownership.'|trans({}) }}
+						</div>
+					{% endif %}
+
+					{# Safe mode is off #}
+					{% if not safeModeIsDisabled %}
+						<div class="check-requirements__requirement check-requirements__requirement--nok">
+							{{ 'PHP\'s "Safe mode" needs to be disabled.'|trans({})|raw }}
+          </div>
+        {% endif %}
+
+        {# Enable allow_url_fopen or cURL #}
+        {% if not allowUrlFopenOrCurlIsEnabled %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'Files can\'t be downloaded. Enable PHP\'s "allow_url_fopen" option or install PHP extension "cURL".'|trans({})|raw }}
+          </div>
+        {% endif %}
+
+        {# Enable zip extension #}
+        {% if not zipIsEnabled %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'Missing PHP extension "zip".'|trans({})|raw }}
+          </div>
+        {% endif %}
+
+        {# Enable maintenance #}
+        {% if not isLocalEnvironment %}
+          {% if not storeIsInMaintenance %}
+            <div class="check-requirements__requirement check-requirements__requirement--nok">
+              {{ 'Maintenance mode needs to be enabled. Enable maintenance mode and add your maintenance IP in [1]Shop parameters > General > Maintenance[/1].'|trans({
+                '[1]' : '<a href="' ~ maintenanceLink ~'" target="_blank">',
+                '[/1]' : '</a>',
+              })|raw }}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {# Cache is disabled #}
+        {% if not cachingIsDisabled %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'PrestaShop\'s caching features needs to be disabled. Disable caching features in [1]Advanced parameters > Performance > Caching[/1].'|trans({
+              '[1]' : '<a href="' ~ cacheLink ~'" target="_blank">',
+              '[/1]' : '</a>',
+            })|raw }}
+          </div>
+        {% endif %}
+        
+        {# Max execution time has high value #}
+        {% if maxExecutionTime <= 30 and maxExecutionTime != 0 %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'PHP\'s max_execution_time setting needs to have a high value or needs to be disabled entirely (current value: %s seconds).'|trans([maxExecutionTime]) }}
+          </div>
+        {% endif %}
+
+        
+        {# Apache mod_rewrite is enabled #}
+        {% if not checkApacheModRewrite %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'Apache mod_rewrite needs to be enabled.'|trans({}) }}
+          </div>
+        {% endif %}
+
+        {# PHP extensions that need to be enabled #}
+        {% if notLoadedPhpExtensions|length > 0 %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {% if notLoadedPhpExtensions|length > 1 %}
+              {{ 'The following PHP extensions need to be installed: %extensions%.'|trans({
+                '%extensions%': '<b>' ~ notLoadedPhpExtensions|join(', ') ~ '</b>'
+              })|raw }}
+            {% else %}
+              {{ 'The following PHP extension needs to be installed: %extension%.'|trans({
+                '%extension%': '<b>' ~ notLoadedPhpExtensions|first ~ '</b>'
+              })|raw }}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {# PHP function that need to be allowed #}
+        {% if notExistsPhpFunctions|length > 0 %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {% if notExistsPhpFunctions|length > 1 %}
+              {{ 'The following PHP functions need to be allowed: %functions%.'|trans({
+                '%functions%': '<b>' ~ notExistsPhpFunctions|join(', ') ~ '</b>'
+              })|raw }}
+            {% else %}
+              {{ 'The following PHP function needs to be allowed: %function%.'|trans({
+                '%function%': '<b>' ~ notExistsPhpFunctions|first ~ '</b>'
+              })|raw }}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {# PHP memory_limit is greater than 256 #}
+        {% if not checkMemoryLimit %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'PHP memory_limit needs to be greater than 256 MB.'|trans({}) }}
+          </div>
+        {% endif %}
+
+        {# PHP file_uploads is enabled #}
+        {% if not checkFileUploads %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'PHP file_uploads configuration needs to be enabled.'|trans({}) }}
+          </div>
+        {% endif %}
+
+        {# Private keys generation #}
+        {% if not checkKeyGeneration %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'Unable to generate private keys using openssl_pkey_new. Check your OpenSSL configuration, especially the path to openssl.cafile.'|trans({}) }}
+          </div>
+		    {% endif %}
+
+        {# Folders writing permissions #}
+        {% if notWritingDirectories|length > 0 %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+					  {{ 'It\'s not possible to write in the following folders: %directories%.'|trans({
+              '%directories%': '<b>' ~ notWritingDirectories|join(', ') ~ '</b>'
+            })|raw }}
+            {{ 'Provide write access to the user running PHP with appropriate permission & ownership.'|trans({}) }}
+          </div>
+        {% endif %}
+
+        {# PrestaShop version mismatch #}
+        {% if not isShopVersionMatchingVersionInDatabase %}
+          <div class="check-requirements__requirement check-requirements__requirement--nok">
+            {{ 'The version of PrestaShop does not match the one stored in database. Your database structure may not be up-to-date and/or the value of PS_VERSION_DB needs to be updated in the configuration table.'|trans({}) }}
+          </div>
+        {% endif %}
+
+        {# WARNING #}
+
+        {# Module is not up to date #}
+        {% if not moduleIsUpToDate %}
+          <div class="check-requirements__requirement check-requirements__requirement--warning">
+            {{ 'Your current version of the module is out of date. Update now %link%'|trans({
+              '%link%': '<a href="' ~ moduleUpdateLink ~ '" target="_blank">Modules > Module Manager > Updates</a>'
+            })|raw }}
+          </div>
+        {% endif %}
+
+        {# PHP compatibility warning #}
+				{% if phpRequirementsState and phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_VALID') %}
+          <div class="check-requirements__requirement check-requirements__requirement--warning">
+            {% if phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
+              {{ 'We were unable to check your PHP compatibility with the destination PrestaShop version.'|trans({}) }}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {# Core files missing #}
+        {% if not noMissingFiles %}
+          <div class="check-requirements__requirement check-requirements__requirement--warning">
+            {{ 'Some core files have been altered, customization made on these files will be lost during the update. See the list in %link%'|trans({
+              '%link%': '<a href="' ~ informationLink ~ '" target="_blank">Advanced parameters > Information</a>'
+            })|raw }}
           </div>
         {% endif %}
       </div>
+
+      <button type="button" class="btn btn-primary">
+        <i class="material-icons">refresh</i>
+        {{ 'Check requirements again'|trans({}) }}
+      </button>
     {% endif %}
   </div>
-{% endif %}
-
-
-{# <div class="bootstrap" id="currentConfigurationBlock">
-    <div class="panel">
-        <div class="panel-heading">
-            {{ 'The pre-Upgrade checklist'|trans({}) }}
-        </div>
-        {% if not moduleIsUpToDate %}
-            <p class="alert alert-warning">
-                {{ 'Your current version of the module is out of date. Update now'|trans({}) }}
-                <a href=" {{ moduleUpdateLink }} ">{{ 'Modules > Module Manager > Updates'|trans({}) }}</a>
-            </p>
-        {% endif %}
-        {% if showErrorMessage %}
-            <p class="alert alert-warning">{{ 'The checklist is not OK. You can only upgrade your shop once all indicators are green.'|trans({}) }}</p>
-        {% endif %}
-        <div id="currentConfiguration">
-            <p class="alert alert-info">{{ 'Before starting the upgrade process, please make sure this checklist is all green.'|trans({}) }}</p>
-            <table class="table" cellpadding="0" cellspacing="0">
-                {% if phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_VALID') %}
-                    <tr>
-                        <td>
-                            {% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
-                                {{ 'Your current PHP version isn\'t compatible with your PrestaShop version. (Expected: %s - %s | Current: %s)'|trans([
-                                    phpCompatibilityRange['php_min_version'],
-                                    phpCompatibilityRange['php_max_version'],
-                                    phpCompatibilityRange['php_current_version'],
-                                ]) }}
-                            {% else %}
-                                {{ 'We were unable to check your PHP compatibility with the destination PrestaShop version.'|trans({}) }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
-                                {{ icons.nok(psBaseUri) }}
-                            {% else %}
-                                {{ icons.warning(psBaseUri) }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endif %}
-                <tr>
-                    <td>{{ 'Your store\'s root directory (%s) is writable (with appropriate CHMOD permissions).'|trans([rootDirectory]) }}</td>
-                    <td>
-                        {% if rootDirectoryIsWritable %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.nok(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% if adminDirectoryWritableReport %}
-                    <tr>
-                        <td>{{ 'The "/admin/autoupgrade" directory is writable (appropriate CHMOD permissions)'|trans({}) }}</td>
-                        <td>
-                            {% if adminDirectoryIsWritable %}
-                                {{ icons.ok(psBaseUri) }}
-                            {% else %}
-                                {{ icons.nok(psBaseUri) }} {{ adminDirectoryWritableReport }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endif %}
-                <tr>
-                    <td>{{ 'PHP\'s "Safe mode" option is turned off'|trans({})|raw }}</td>
-                    <td>
-                        {% if safeModeIsDisabled %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.warning(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{ 'PHP\'s "allow_url_fopen" option is turned on, or cURL is installed'|trans({})|raw }}</td>
-                    <td>
-                        {% if allowUrlFopenOrCurlIsEnabled %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.nok(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{ 'PHP\'s "zip" extension is enabled'|trans({})|raw }}</td>
-                    <td>
-                        {% if zipIsEnabled %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.nok(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% if not isLocalEnvironment %}
-                <tr>
-                    <td>
-                        {% if storeIsInMaintenance %}
-                            {{ 'Your store is in maintenance mode'|trans({}) }}
-                        {% else %}
-                            {{ 'Enable maintenance mode and add your maintenance IP in [1]Shop parameters > General > Maintenance[/1]'|trans({
-                              '[1]' : '<a href="' ~ maintenanceLink ~'" target="_blank">',
-                              '[/1]' : '</a>',
-                            })|raw }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if storeIsInMaintenance %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.nok(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endif %}
-                <tr>
-                    <td>{{ 'PrestaShop\'s caching features are disabled'|trans({}) }}</td>
-                    <td>
-                        {% if cachingIsDisabled %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.nok(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        {% if maxExecutionTime == 0 %}
-                            {{ 'PHP\'s max_execution_time setting has a high value or is disabled entirely (current value: unlimited)'|trans({}) }}
-                        {% else %}
-                            {{ 'PHP\'s max_execution_time setting has a high value or is disabled entirely (current value: %s seconds)'|trans([maxExecutionTime]) }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if maxExecutionTime == 0 %}
-                            {{ icons.ok(psBaseUri) }}
-                        {% else %}
-                            {{ icons.warning(psBaseUri) }}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% if not checkApacheModRewrite %}
-                  <tr>
-                    <td>{{ 'Apache mod_rewrite is disabled.'|trans({}) }}</td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if notLoadedPhpExtensions|length > 0 %}
-                  <tr>
-                    <td>
-                      {% if notLoadedPhpExtensions|length > 1 %}
-                        {{ 'The following PHP extensions are not installed: %s.'|trans([notLoadedPhpExtensions|join(', ')]) }}
-                      {% else %}
-                        {{ 'The following PHP extension is not installed: %s.'|trans([notLoadedPhpExtensions|first]) }}
-                      {% endif %}
-                    </td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if not checkMemoryLimit %}
-                <tr>
-                  <td>{{ 'PHP memory_limit is inferior to 256 MB.'|trans({}) }}</td>
-                  <td>{{ icons.nok(psBaseUri) }}</td>
-                </tr>
-                {% endif %}
-                {% if not checkFileUploads %}
-                <tr>
-                  <td>{{ 'PHP file_uploads configuration is disabled.'|trans({}) }}</td>
-                  <td>{{ icons.nok(psBaseUri) }}</td>
-                </tr>
-                {% endif %}
-                {% if notExistsPhpFunctions|length > 0 %}
-                  <tr>
-                    <td>
-                      {% if notExistsPhpFunctions|length > 1 %}
-                        {{ 'The following PHP functions are not installed: %s.'|trans([notExistsPhpFunctions|join(', ')]) }}
-                      {% else %}
-                        {{ 'The following PHP function is not installed: %s.'|trans([notExistsPhpFunctions|first]) }}
-                      {% endif %}
-                    </td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if not checkPhpSessions %}
-                  <tr>
-                    <td>{{ 'It\'s not possible to create a PHP session.'|trans({}) }}</td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if not checkKeyGeneration %}
-                  <tr>
-                    <td>{{ 'Unable to generate private keys using openssl_pkey_new. Check your OpenSSL configuration, especially the path to openssl.cafile.'|trans({}) }}</td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if missingFiles|length > 0 %}
-                  <tr>
-                    <td>
-                      {{ 'The following files are missing:'|trans({}) }}
-                      <ul>
-                        {% for file in missingFiles %}
-                        <li>{{ file }}</li>
-                        {% endfor %}
-                      </ul>
-                    </td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if notWritingDirectories|length > 0 %}
-                  <tr>
-                    <td>
-                      {{ 'It\'s not possible to write in the following folders:'|trans({}) }}
-                      <ul>
-                        {% for missingFile in notWritingDirectories %}
-                        <li>{{ missingFile }}</li>
-                        {% endfor %}
-                      </ul>
-                    </td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-                {% if not isShopVersionMatchingVersionInDatabase %}
-                  <tr>
-                    <td>
-                      {{ 'The version of PrestaShop does not match the one stored in database. Your database structure may not be up-to-date and/or the value of PS_VERSION_DB needs to be updated in the configuration table. [1]Learn more[/1].'|trans({
-                        '[1]': '<a href="https://devdocs.prestashop-project.org/8/faq/upgrade#the-version-of-prestashop-does-not-match-the-one-stored-in-database" target="_blank">',
-                        '[/1]': '</a>',
-                      })|raw }}
-                    </td>
-                    <td>{{ icons.nok(psBaseUri) }}</td>
-                  </tr>
-                {% endif %}
-            </table>
-            <br>
-            <p class="alert alert-info">{{ 'Please also make sure you make a full manual backup of your files and database.'|trans({}) }}</p>
-            {% if showErrorMessage %}
-              <p class="alert alert-danger">{{ 'PrestaShop requirements are not satisfied.'|trans({}) }}</p>
-            {% endif %}
-        </div>
+{% else %}
+  <div class="check-requirements check-requirements--success">
+    <div class="alert alert-success">
+      {{ 'The requirements check is complete, you can update your store (to this version of PrestaShop).'|trans({}) }}
     </div>
-</div>
- #}
+  </div>
+{% endif %}

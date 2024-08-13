@@ -4,44 +4,50 @@ $e: ".radio-card";
 
 #{$ua-prefix} {
   #{$e} {
-    --ua-radio-card-title-color: #1D1D1B;
-    --ua-radio-card-title-color-disabled: #BBBBBB;
-    --ua-radio-card-message-color: #5E5E5E;
-    --ua-radio-card-message-color-disabled: #BBBBBB;
-    --ua-radio-card-disabled-message-color: #FFFFFF;
-    --ua-radio-card-disabled-message-background-color: #1D1D1B;
+    --ua-radio-card-title-color: #1d1d1b;
+    --ua-radio-card-title-color-disabled: #bbbbbb;
+    --ua-radio-card-message-color: #5e5e5e;
+    --ua-radio-card-message-color-disabled: #bbbbbb;
+    --ua-radio-card-disabled-message-color: #ffffff;
+    --ua-radio-card-disabled-message-background-color: #1d1d1b;
     --ua-radio-card-border-radius: 0;
-    --ua-radio-card-border-color: #DDDDDD;
-    --ua-radio-card-border-color-hover: #1D1D1B;
+    --ua-radio-card-border-color: #dddddd;
+    --ua-radio-card-border-color-hover: #1d1d1b;
     --ua-radio-card-border-color-active: var(--ua-radio-card-border-color-hover);
-    --ua-radio-card-release-color: #1D1D1B;
-    --ua-radio-card-release-border-color: #DDDDDD;
-    --ua-radio-card-badge-color: #1D1D1B;
-    --ua-radio-card-badge-background-color: #D1DCFC;
+    --ua-radio-card-release-color: #1d1d1b;
+    --ua-radio-card-release-border-color: #dddddd;
+    --ua-radio-card-release-border-color-hover: var(--ua-radio-card-release-color);
+    --ua-radio-card-badge-color: #1d1d1b;
+    --ua-radio-card-badge-background-color: #f7f7f7;
+    --ua-radio-card-badge-border-color: #dddddd;
+    --ua-radio-card-badge-major-background-color: #f8f0f7;
+    --ua-radio-card-badge-major-border-color: #decde7;
+    --ua-radio-card-badge-minor-background-color: #e4f4f8;
+    --ua-radio-card-badge-minor-border-color: #a4dbe8;
     all: unset;
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid var(--ua-radio-card-border-color);
     border-radius: var(--ua-radio-card-border-radius);
     transition: border-color 0.15s;
-  
+
     &:not(#{$e}--disabled) {
       &:hover {
         border-color: var(--ua-radio-card-border-color-hover);
         cursor: pointer;
       }
     }
-  
+
     &:has(input[type="radio"]:checked) {
       border-color: var(--ua-radio-card-border-color-active);
     }
-  
+
     &__radio-wrapper {
       flex-shrink: 0;
     }
-    
+
     &__infos-wrapper {
       flex-grow: 1;
     }
@@ -53,7 +59,7 @@ $e: ".radio-card";
       align-items: center;
       justify-content: space-between;
     }
-    
+
     &__title {
       display: inline-flex;
       flex-wrap: wrap;
@@ -71,18 +77,29 @@ $e: ".radio-card";
       padding: 0.125rem 0.5rem;
       background-color: var(--ua-radio-card-badge-background-color);
       border-radius: 2rem;
-      font-size: 0.875rem;
+      font-size: 12px;
       font-weight: 500;
       color: var(--ua-radio-card-badge-color);
-      line-height: 1.4;
+      line-height: 1.5;
+      border: 0.0625rem solid var(--ua-radio-card-badge-border-color);
+
+      &--major {
+        background-color: var(--ua-radio-card-badge-major-background-color);
+        border-color: var(--ua-radio-card-badge-major-border-color);
+      }
+
+      &--minor {
+        background-color: var(--ua-radio-card-badge-minor-background-color);
+        border-color: var(--ua-radio-card-badge-minor-border-color);
+      }
     }
-    
+
     &__message {
       font-size: 0.875rem;
       margin-block: 0.5rem 0;
       color: var(--ua-radio-card-message-color);
     }
-    
+
     &__release-note {
       display: inline-flex;
       gap: 0.25rem;
@@ -93,11 +110,13 @@ $e: ".radio-card";
       line-height: 1.4;
       text-decoration: none;
       border-bottom: 1px solid var(--ua-radio-card-release-border-color);
-      
+      transition: border-color 0.15s;
+
       &:hover {
         text-decoration: none;
+        border-color: var(--ua-radio-card-release-border-color-hover);
       }
-      
+
       i {
         font-size: 0.875rem;
       }
@@ -119,11 +138,11 @@ $e: ".radio-card";
     &__local-archive {
       padding-block-start: 0.5rem;
     }
-    
+
     &--disabled {
       position: relative;
       cursor: not-allowed;
-      
+
       #{$e}__title {
         color: var(--ua-radio-card-title-color-disabled);
       }

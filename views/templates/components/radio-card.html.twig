@@ -1,11 +1,11 @@
-<label class="radio-card {% if disabled %} radio-card--disabled {% endif %}" for="radio_card">
+<label class="radio-card {% if disabled %} radio-card--disabled {% endif %}" {% if radioCardId %} for="{{ radioCardId }}" {% endif %}>
   {% if disabledMessage %}
     <div class="radio-card__disabled-message">
       {{ disabledMessage }}
     </div>
   {% endif %}
   <div class="radio-card__radio-wrapper">
-    <input class="radio" type="radio" id="radio_card" name="radio_card" {% if disabled %} disabled {% endif %} />
+    <input class="radio" type="radio" {% if radioCardId %} id="{{ radioCardId }}" name="{{ radioCardId }}" {% endif %} {% if disabled %} disabled {% endif %} {% if checked and not disabled %} checked {% endif %} />
   </div>
 
   <div class="radio-card__infos-wrapper">
@@ -13,9 +13,9 @@
       <p class="radio-card__title">
         {{ title }}
 
-        {% if badge != null %}
-          <span class="radio-card__badge">
-            {{ badge }}
+        {% if badgeLabel %}
+          <span class="radio-card__badge {% if badgeStatus %} radio-card__badge--{{ badgeStatus }} {% endif %}">
+            {{ badgeLabel }}
           </span>
         {% endif %}
       </p>

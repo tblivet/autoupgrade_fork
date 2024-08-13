@@ -3,7 +3,7 @@
 #{$ua-prefix} {
   --ua-typography-color: #1d1d1b;
   --ua-link-color: #1d1d1b;
-  --ua-link-hover-color: #1d1d1b;
+  --ua-link-color-hover: #1d1d1b;
 
   h1,
   h2,
@@ -49,7 +49,7 @@
     transition: text-underline-offset 0.15s;
 
     &:hover {
-      color: var(--ua-link-hover-color);
+      color: var(--ua-link-color-hover);
       text-underline-offset: 0.25rem;
     }
   }

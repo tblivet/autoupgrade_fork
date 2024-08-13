@@ -4,10 +4,10 @@ $e: ".radio";
 
 #{$ua-prefix} {
   #{$e} {
-    --ua-radio-border-color: #1D1D1B;
-    --ua-radio-background-color-checked: #1D1D1B;
-    --ua-radio-border-color-checked: #1D1D1B;
-    --ua-radio-border-color-disabled: #BBBBBB;
+    --ua-radio-border-color: #1d1d1b;
+    --ua-radio-background-color-checked: #1d1d1b;
+    --ua-radio-border-color-checked: #1d1d1b;
+    --ua-radio-border-color-disabled: #bbbbbb;
     position: relative;
     margin: 0;
     padding: 0;
@@ -22,13 +22,13 @@ $e: ".radio";
     line-height: 0;
     -webkit-appearance: none;
     cursor: pointer;
-  
+
     &:checked {
       padding: 3px;
       background-color: var(--ua-radio-background-color-checked);
       border: 2px solid var(--ua-radio-border-color-checked);
     }
-    
+
     &:disabled {
       border-color: var(--ua-radio-border-color-disabled);
     }

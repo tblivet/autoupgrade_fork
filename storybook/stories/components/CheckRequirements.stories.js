@@ -30,16 +30,49 @@ export default {
   args: {
     requirementsOk: true,
     checkingForRequirements: true,
+    updateAssistantDocs: 
+      "https://devdocs.prestashop-project.org/8/basics/keeping-up-to-date/use-autoupgrade-module/",
+    moduleIsUpToDate: false,
+    moduleUpdateLink:
+      "/admin/index.php/improve/modules/updates?_token=MbkhzPrMc9ZknpvSTqeKbKiekftXvp4IowAxrW4Jcfw",
+    noMissingFiles: false,
+    informationLink: 
+      "/admin/index.php/configure/advanced/system-information/?_token=MbkhzPrMc9ZknpvSTqeKbKiekftXvp4IowAxrW4Jcfw",
     phpRequirementsState: 1,
     phpCompatibilityRange: {
       php_min_version: "7.2.5",
       php_max_version: "8.1",
       php_current_version: "7.4.33",
     },
-    rootDirectoryIsWritable: true,
+    rootDirectoryIsWritable: false,
     rootDirectory: "/var/www/html",
-    adminDirectoryIsWritable: true,
-    adminDirectoryWritableReport: "a",
+    adminDirectoryIsWritable: false,
+    adminDirectoryWritableReport: "", // Not used
+    safeModeIsDisabled: false,
+    allowUrlFopenOrCurlIsEnabled: false,
+    zipIsEnabled: false,
+    isLocalEnvironment: false,
+    storeIsInMaintenance: false,
+    maintenanceLink:
+      "/admin/index.php/configure/shop/maintenance/?_token=MbkhzPrMc9ZknpvSTqeKbKiekftXvp4IowAxrW4Jcfw",
+    cachingIsDisabled: false,
+    cacheLink:
+      "/admin/index.php/configure/advanced/performance/?_token=MbkhzPrMc9ZknpvSTqeKbKiekftXvp4IowAxrW4Jcfw",
+    maxExecutionTime: 5,
+    checkApacheModRewrite: false,
+    notLoadedPhpExtensions: [
+      "curl", "dom", "fileinfo", "gd", "intl", "json", "mbstring", "openssl", "pdo_mysql", "simplexml", "zip"
+    ],
+    notExistsPhpFunctions: [
+      "fopen", "fclose", "fread", "fwrite", "rename", "file_exists", "unlink", "rmdir", "mkdir", "getcwd", "chdir", "chmod"
+    ],
+    checkMemoryLimit: false,
+    checkFileUploads: false,
+    checkKeyGeneration: false,
+    notWritingDirectories: [
+      "autoupgrade", "views", "js", "css"
+    ],
+    isShopVersionMatchingVersionInDatabase: false,
   },
 };
 

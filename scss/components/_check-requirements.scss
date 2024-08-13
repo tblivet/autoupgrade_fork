@@ -7,7 +7,7 @@ $e: ".check-requirements";
   #{$e} {
     --ua-requirements-background-color: #f7f7f7;
     --ua-requirements-loader-color: #1d1d1b;
-    --ua-requirements-loader-dot-color: #5C92AA;
+    --ua-requirements-loader-dot-color: #5c92aa;
     margin-block-start: 0.5rem;
     padding: 1rem;
     background-color: var(--ua-requirements-background-color);
@@ -38,7 +38,7 @@ $e: ".check-requirements";
         display: block;
         width: 0.1875rem;
         height: 0.1875rem;
-        background: #5C92AA;
+        background: #5c92aa;
         border-radius: 50%;
         transform: translate(-50%, -100%);
       }
@@ -55,7 +55,7 @@ $e: ".check-requirements";
     &__message {
       margin-block-end: 1rem;
     }
-    
+
     &__list {
       display: flex;
       flex-direction: column;
@@ -74,7 +74,7 @@ $e: ".check-requirements";
       &--nok {
         background-image: url("../img/close.svg");
       }
-      
+
       &--warning {
         background-image: url("../img/warning.svg");
       }
@@ -82,6 +82,11 @@ $e: ".check-requirements";
       &--ok {
         background-image: url("../img/check.svg");
       }
+    }
+
+    &--success {
+      background-color: none;
+      padding: 0;
     }
   }
 }
