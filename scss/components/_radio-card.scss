@@ -76,12 +76,12 @@ $e: ".radio-card";
       flex-shrink: 0;
       padding: 0.125rem 0.5rem;
       background-color: var(--ua-radio-card-badge-background-color);
+      border: 0.0625rem solid var(--ua-radio-card-badge-border-color);
       border-radius: 2rem;
       font-size: 12px;
       font-weight: 500;
       color: var(--ua-radio-card-badge-color);
       line-height: 1.5;
-      border: 0.0625rem solid var(--ua-radio-card-badge-border-color);
 
       &--major {
         background-color: var(--ua-radio-card-badge-major-background-color);
