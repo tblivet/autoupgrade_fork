@@ -1,9 +1,12 @@
 <label class="radio-card {% if disabled %} radio-card--disabled {% endif %}" {% if radioCardId %} for="{{ radioCardId }}" {% endif %}>
   {% if disabledMessage %}
     <div class="radio-card__disabled-message">
-      {{ disabledMessage }}
+      <div class="radio-card__disabled-message-placement">
+        {{ disabledMessage }}
+      </div>
     </div>
   {% endif %}
+
   <div class="radio-card__radio-wrapper">
     <input class="radio" type="radio" {% if radioCardId %} id="{{ radioCardId }}" name="{{ radioCardId }}" {% endif %} {% if disabled %} disabled {% endif %} {% if checked and not disabled %} checked {% endif %} />
   </div>

@@ -1,9 +1,8 @@
 @use "../../variables" as *;
 
-#{$ua-prefix} {
+#{$ua-id} {
   .require-star {
-    --ua-required-color: #ba151a;
-    color: var(--ua-required-color);
+    color: var(--#{$ua-prefix}required-color);
   }
 
   .form {

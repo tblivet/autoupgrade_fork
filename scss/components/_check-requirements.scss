@@ -3,14 +3,16 @@
 
 $e: ".check-requirements";
 
-#{$ua-prefix} {
+#{$ua-id} {
   #{$e} {
-    --ua-requirements-background-color: #f7f7f7;
-    --ua-requirements-loader-color: #1d1d1b;
-    --ua-requirements-loader-dot-color: #5c92aa;
+    --#{$ua-prefix}requirements-background-color: var(--#{$ua-prefix}muted-background-color);
+    --#{$ua-prefix}requirements-loader-color: var(--#{$ua-prefix}base-text-color);
+    --#{$ua-prefix}requirements-loader-dot-color: var(--#{$ua-prefix}ocean-blue-700);
+    --#{$ua-prefix}requirements-loader-gradient-color: var(--#{$ua-prefix}ocean-blue-500);
     margin-block-start: 0.5rem;
     padding: 1rem;
-    background-color: var(--ua-requirements-background-color);
+    background-color: var(--#{$ua-prefix}requirements-background-color);
+    border-radius: var(--#{$ua-prefix}border-radius);
 
     &__loader {
       position: relative;
@@ -19,11 +21,12 @@ $e: ".check-requirements";
       height: 1.625rem;
       background:
         linear-gradient(
-            var(--ua-requirements-background-color),
-            var(--ua-requirements-background-color)
+            var(--#{$ua-prefix}requirements-background-color),
+            var(--#{$ua-prefix}requirements-background-color)
           )
           padding-box,
-        conic-gradient(from 0, transparent, #78c4d8) border-box;
+        conic-gradient(from 0, transparent, var(--#{$ua-prefix}requirements-loader-gradient-color))
+          border-box;
       border: 0.1875rem solid transparent;
       border-radius: 100%;
       text-align: center;
@@ -38,7 +41,7 @@ $e: ".check-requirements";
         display: block;
         width: 0.1875rem;
         height: 0.1875rem;
-        background: #5c92aa;
+        background: var(--#{$ua-prefix}requirements-loader-dot-color);
         border-radius: 50%;
         transform: translate(-50%, -100%);
       }
@@ -47,7 +50,7 @@ $e: ".check-requirements";
     &__loader-title {
       font-size: 0.875rem;
       font-weight: 700;
-      color: var(--ua-requirements-loader-color);
+      color: var(--#{$ua-prefix}requirements-loader-color);
       line-height: 1.4;
       text-align: center;
     }
@@ -71,7 +74,7 @@ $e: ".check-requirements";
       font-size: 0.875rem;
       line-height: 1.4;
 
-      &--nok {
+      &--error {
         background-image: url("../img/close.svg");
       }
 
@@ -79,14 +82,14 @@ $e: ".check-requirements";
         background-image: url("../img/warning.svg");
       }
 
-      &--ok {
+      &--success {
         background-image: url("../img/check.svg");
       }
     }
 
     &--success {
       padding: 0;
-      background-color: none;
+      background-color: transparent;
     }
   }
 }

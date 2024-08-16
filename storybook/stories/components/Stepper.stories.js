@@ -23,32 +23,33 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import RadioCard from "../../../views/templates/components/radio-card.html.twig";
-import LocalArchive from "./LocalArchive.stories";
-import CheckRequirements from "./CheckRequirements.stories";
+import Stepper from "../../../views/templates/components/stepper.html.twig";
 
 export default {
-  component: RadioCard,
-  argTypes: {
-    badgeStatus: {
-      control: "select",
-      options: ["major", "minor", "patch"],
-    },
-  },
+  component: Stepper,
   args: {
-    radioCardId: "",
-    checked: false,
-    title: "Update your store",
-    message: "Update your store to benefit from the latest improvements, bug fixes and security patches.",
-    disabled: false,
-    disabledMessage: "No backup file found on your store.",
-    badgeLabel: "Major version",
-    badgeStatus: "major",
-    releaseNote: "https://github.com/PrestaShop/autoupgrade",
-    archiveCard: false,
-    checkRequirements: false,
-    ...LocalArchive.args,
-    ...CheckRequirements.args,
+    steps: [
+      {
+        state: "done",
+        title: "Version choice",
+      },
+      {
+        state: "current",
+        title: "Update options",
+      },
+      {
+        state: "normal",
+        title: "Backup",
+      },
+      {
+        state: "normal",
+        title: "Update",
+      },
+      {
+        state: "normal",
+        title: "Post-update",
+      },
+    ],
   },
 };
 

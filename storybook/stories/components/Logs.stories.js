@@ -30,126 +30,144 @@ export default {
   args: {
     logs: [
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'warning',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
-        id: 'warning_1',
+        status: "warning",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        id: "warning_1",
       },
       {
-        status: 'error',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
-        id: 'error_1',
+        status: "error",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        id: "error_1",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "warning",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        id: "warning_2",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "error",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        id: "error_2",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
       {
-        status: 'success',
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+      },
+      {
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+      },
+      {
+        status: "success",
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
       },
     ],
     logsSummaryWarning: [
       {
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
-        anchor: 'warning_1',
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        anchor: "warning_1",
+      },
+      {
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        anchor: "warning_2",
       },
     ],
     logsSummaryError: [
       {
-        message: 'src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.',
-        anchor: 'error_1',
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        anchor: "error_1",
+      },
+      {
+        message: "src/Core/Domain/Product/Pack/Query/GetPackedProducts.php added to archive. 13114 files left.",
+        anchor: "error_2",
       },
     ],
     downloadLogsButtonUrl: "#",
@@ -159,14 +177,14 @@ export default {
 
 export const Default = {};
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.logs__summary-anchor').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".logs__summary-anchor").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
       e.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1);
+      const targetId = this.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
-      const logsScroll = document.querySelector('.logs__scroll');
+      const logsScroll = document.querySelector(".logs__scroll");
 
       if (logsScroll && targetElement) {
         const targetRect = targetElement.getBoundingClientRect();
@@ -175,10 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         logsScroll.scrollTo({
           top: offsetTop,
-          behavior: 'smooth'
+          behavior: "smooth"
         });
       } else {
-        console.error('Element not found:', {
+        console.error("Element not found:", {
           logsScroll: logsScroll,
           targetElement: targetElement
         });

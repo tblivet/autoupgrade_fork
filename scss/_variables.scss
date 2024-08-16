@@ -1,1 +1,52 @@
-$ua-prefix: "#update_assistant";
+$ua-id: "#update_assistant";
+$ua-prefix: "ua-";
+$cdk-prefix: "cdk-";
+
+/* CSS variables */
+/* Global variables to handle both theme */
+/* 9.0.0 */
+:root {
+  /* Primitive */
+  --#{$ua-prefix}white: #ffffff;
+  --#{$ua-prefix}black: #000000;
+  --#{$ua-prefix}primary-800: var(--#{$cdk-prefix}primary-800, #1d1d1b);
+  --#{$ua-prefix}primary-700: var(--#{$cdk-prefix}primary-700, #3f3f3d);
+  --#{$ua-prefix}primary-500: var(--#{$cdk-prefix}primary-500, #bbbbbb);
+  --#{$ua-prefix}primary-400: var(--#{$cdk-prefix}primary-400, #dddddd);
+  --#{$ua-prefix}primary-200: var(--#{$cdk-prefix}primary-200, #f7f7f7);
+  --#{$ua-prefix}purple-500: var(--#{$cdk-prefix}purple-500, #decde7);
+  --#{$ua-prefix}purple-50: var(--#{$cdk-prefix}purple-50, #f8f0f7);
+  --#{$ua-prefix}ocean-blue-700: var(--#{$cdk-prefix}ocean-blue-700, #5c92aa);
+  --#{$ua-prefix}ocean-blue-500: var(--#{$cdk-prefix}ocean-blue-500, #a4dbe8);
+  --#{$ua-prefix}ocean-blue-50: var(--#{$cdk-prefix}ocean-blue-50, #e4f4f8);
+  --#{$ua-prefix}green-500: var(--#{$cdk-prefix}green-500, #207f4b);
+  --#{$ua-prefix}green-50: var(--#{$cdk-prefix}green-50, #eaf8ef);
+  --#{$ua-prefix}red-500: var(--#{$cdk-prefix}red-500, #ba151a);
+  --#{$ua-prefix}red-50: var(--#{$cdk-prefix}red-50, #ffe4e6);
+
+  /* Global */
+  --#{$ua-prefix}border-radius: 0;
+  --#{$ua-prefix}base-text-color: var(--#{$ua-prefix}primary-800);
+  --#{$ua-prefix}disabled-color: var(--#{$ua-prefix}primary-500);
+  --#{$ua-prefix}border-color: var(--#{$ua-prefix}primary-400);
+  --#{$ua-prefix}required-color: var(--#{$ua-prefix}red-500);
+  --#{$ua-prefix}primary: var(--#{$ua-prefix}primary-800);
+  --#{$ua-prefix}primary-hover: var(--#{$ua-prefix}primary-700);
+  --#{$ua-prefix}muted-background-color: var(--#{$ua-prefix}primary-200);
+}
+
+/* 1.7.8.0 */
+.v1-7-8-0 {
+  --#{$ua-prefix}border-radius: 0.5rem;
+  --#{$ua-prefix}primary: #25b9d7;
+  --#{$ua-prefix}primary-hover: #1a8196;
+  --#{$ua-prefix}base-text-color: #555555;
+}
+
+/* 1.7.3.0 */
+.v1-7-3-0 {
+  --#{$ua-prefix}border-radius: 0;
+  --#{$ua-prefix}primary: #00aff0;
+  --#{$ua-prefix}primary-hover: #008abd;
+  --#{$ua-prefix}base-text-color: #555555;
+}

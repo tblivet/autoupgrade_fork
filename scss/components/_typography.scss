@@ -1,9 +1,9 @@
 @use "../variables" as *;
 
-#{$ua-prefix} {
-  --ua-typography-color: #1d1d1b;
-  --ua-link-color: #1d1d1b;
-  --ua-link-color-hover: #1d1d1b;
+#{$ua-id} {
+  --#{$ua-prefix}typography-color: var(--#{$ua-prefix}base-text-color);
+  --#{$ua-prefix}link-color: var(--#{$ua-prefix}primary);
+  --#{$ua-prefix}link-color-hover: var(--#{$ua-prefix}primary-hover);
 
   h1,
   h2,
@@ -17,7 +17,7 @@
   .h4,
   .h5,
   .h6 {
-    color: var(--ua-typography-color);
+    color: var(--#{$ua-prefix}typography-color);
   }
 
   .h1 {
@@ -43,13 +43,14 @@
   }
 
   a.link {
-    color: var(--ua-link-color);
+    color: var(--#{$ua-prefix}link-color);
     text-decoration: underline;
     text-underline-offset: 0.125rem;
     transition: text-underline-offset 0.15s;
 
     &:hover {
-      color: var(--ua-link-color-hover);
+      color: var(--#{$ua-prefix}link-color-hover);
+      text-decoration-color: var(--#{$ua-prefix}link-color-hover);
       text-underline-offset: 0.25rem;
     }
   }
