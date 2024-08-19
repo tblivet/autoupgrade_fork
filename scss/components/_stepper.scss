@@ -14,9 +14,9 @@ $e: ".stepper";
     grid-auto-columns: minmax(7rem, 12rem);
     grid-auto-flow: column;
     align-items: flex-start;
-    margin: 0 auto;
-    padding-block-end: 0.5rem;
     max-width: fit-content;
+    padding-block-end: 0.5rem;
+    margin: 0 auto;
     overflow-x: auto;
 
     &__step {
@@ -63,8 +63,8 @@ $e: ".stepper";
         #{$e}__step-number {
           background-color: var(--#{$ua-prefix}step-done-background-color);
           background-image: url("../img/check.svg");
-          background-position: center center;
           background-repeat: no-repeat;
+          background-position: center center;
           background-size: 1rem 1rem;
         }
       }
@@ -73,14 +73,14 @@ $e: ".stepper";
     &__step-number {
       z-index: 1;
       display: block;
-      margin: 0 auto;
       width: var(--#{$ua-prefix}step-number-size);
       height: var(--#{$ua-prefix}step-number-size);
+      margin: 0 auto;
       background-color: var(--#{$ua-prefix}step-normal-background-color);
       border-radius: 50%;
       font-size: 0.875rem;
-      color: var(--#{$ua-prefix}step-number-color);
       line-height: var(--#{$ua-prefix}step-number-size);
+      color: var(--#{$ua-prefix}step-number-color);
       text-align: center;
     }
 

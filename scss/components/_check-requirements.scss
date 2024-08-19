@@ -9,16 +9,17 @@ $e: ".check-requirements";
     --#{$ua-prefix}requirements-loader-color: var(--#{$ua-prefix}base-text-color);
     --#{$ua-prefix}requirements-loader-dot-color: var(--#{$ua-prefix}ocean-blue-700);
     --#{$ua-prefix}requirements-loader-gradient-color: var(--#{$ua-prefix}ocean-blue-500);
-    margin-block-start: 0.5rem;
     padding: 1rem;
+    margin-block-start: 0.5rem;
     background-color: var(--#{$ua-prefix}requirements-background-color);
     border-radius: var(--#{$ua-prefix}border-radius);
 
     &__loader {
       position: relative;
-      margin-block-end: 1rem;
       width: 1.625rem;
       height: 1.625rem;
+      margin-block-end: 1rem;
+      margin-inline: auto;
       background:
         linear-gradient(
             var(--#{$ua-prefix}requirements-background-color),
@@ -31,7 +32,6 @@ $e: ".check-requirements";
       border-radius: 100%;
       text-align: center;
       animation: rotate 1.5s linear infinite;
-      margin-inline: auto;
 
       &::before {
         content: "";
@@ -50,8 +50,8 @@ $e: ".check-requirements";
     &__loader-title {
       font-size: 0.875rem;
       font-weight: 700;
-      color: var(--#{$ua-prefix}requirements-loader-color);
       line-height: 1.4;
+      color: var(--#{$ua-prefix}requirements-loader-color);
       text-align: center;
     }
 
@@ -68,8 +68,8 @@ $e: ".check-requirements";
 
     &__requirement {
       padding-inline-start: 2rem;
-      background-position: left center;
       background-repeat: no-repeat;
+      background-position: left center;
       background-size: 1.5rem 1.5rem;
       font-size: 0.875rem;
       line-height: 1.4;
