@@ -38,14 +38,11 @@ $e: ".alert";
       gap: 0.5rem;
     }
 
-    &__action {
-      flex-shrink: 0;
-    }
-
     &__link {
       background-color: transparent;
       color: var(--#{$ua-prefix}base-text-color);
       text-decoration: none;
+      white-space: normal;
 
       &:hover {
         &.btn-info {

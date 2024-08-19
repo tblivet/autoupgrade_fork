@@ -1,0 +1,15 @@
+<div class="render-field render-field--{{ field.type }}" {% if field.id %}id="{{ field.id }}"{% endif %}
+>
+	<div class="render-field__infos">
+		<p class="render-field__title">
+      {{ field.title }} {% if field.required %}<sup class="text-danger">*</sup>{% endif %}
+    </p>
+		<p class="render-field__desc text-muted">{{ field.desc }}</p>
+	</div>
+
+	<div class="render-field__action">
+		{% block action_content %}
+			{# Default content can go here, or it can be left empty for children to override #}
+		{% endblock %}
+	</div>
+</div>
