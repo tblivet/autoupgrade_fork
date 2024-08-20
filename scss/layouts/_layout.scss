@@ -1,0 +1,17 @@
+@use "../variables" as *;
+
+$e: "#ua";
+
+#{$e} {
+  &__main {
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__container {
+    display: grid;
+    gap: 2rem;
+    padding: 4rem;
+    background-color: var(--#{$ua-prefix}white);
+  }
+}
