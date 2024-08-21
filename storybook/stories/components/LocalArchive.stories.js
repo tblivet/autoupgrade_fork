@@ -43,7 +43,8 @@ export default {
     downloadPath:
       "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
     unableToFindVersion: false,
-    xmlMismatch: false,
+    unableToFindVersionInXML: false,
+    versionsMismatch: false,
   },
 };
 

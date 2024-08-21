@@ -17,7 +17,9 @@
   .h4,
   .h5,
   .h6 {
-    color: var(--#{$ua-prefix}typography-color);
+    margin-block: 0;
+    font-weight: 600;
+    text-wrap: pretty;
   }
 
   .h1 {
@@ -27,22 +29,22 @@
   }
 
   .h2 {
-    margin-block: 0 1rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 
   .h3 {
-    margin-block: 0 0.5rem;
     font-size: 1.125rem;
     font-weight: 600;
   }
 
   p {
+    margin-block-end: 0.25rem;
     font-size: 0.875rem;
   }
 
   a.link {
+    display: inline-block;
     color: var(--#{$ua-prefix}link-color);
     text-decoration: underline;
     text-underline-offset: 0.125rem;
@@ -52,6 +54,13 @@
       color: var(--#{$ua-prefix}link-color-hover);
       text-decoration-color: var(--#{$ua-prefix}link-color-hover);
       text-underline-offset: 0.25rem;
+    }
+
+    .material-icons {
+      padding-inline: 0.25rem;
+      font-size: 1rem;
+      text-decoration: none;
+      vertical-align: middle;
     }
   }
 }

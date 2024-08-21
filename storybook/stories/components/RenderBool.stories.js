@@ -26,7 +26,7 @@
 import RenderBool from "../../../views/templates/components/render-bool.html.twig";
 
 export default {
-  title: "Components/Render Fields/RenderBool",
+  title: "Components/Render Fields",
   component: RenderBool,
   argTypes: {
     type: {
@@ -53,4 +53,4 @@ export default {
   },
 };
 
-export const Default = {};
+export const Boolean = {};

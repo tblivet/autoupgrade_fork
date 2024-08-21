@@ -23,44 +23,32 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import RenderSelect from "../../../views/templates/components/render-select.html.twig";
+import Modal from "../../../views/templates/components/modal.html.twig";
 
 export default {
-  title: "Components/Render Fields",
-  component: RenderSelect,
+  title: "Components/Modal",
+  component: Modal,
   argTypes: {
-    type: {
+    modalSize: {
       control: "select",
-      options: [
-        "disabled",
-        "bool",
-        "radio",
-        "select",
-        "textarea",
-        "container",
-        "container_end",
-        "text",
-      ],
-      defaultValue: "select",
+      options: ["sm", "md", "lg"],
     },
   },
   args: {
-    field: {
-      id: "switch_theme",
-      title: "Switch the theme",
-      desc: "Custom themes may cause compatibility issues. We recommend using a default theme during the update and change it afterwards.",
-      choices: {
-        0: "Keep the actual theme",
-        1: "Upgrade the default theme",
-        2: "Do nothing",
-      },
-      type: "select",
-      required: true,
-      disabled: false,
-    },
-    key: "PS_AUTOUP_SWITCH_THEME",
-    val: "1",
+    modalId: "modal_id",
+    title: "Title goes here",
+    message: "Message goes here, lorem ipsum dolor site amet",
+    modalSize: "lg",
+    psBaseUri: "/",
   },
 };
 
-export const Select = {};
+export const Default = {};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modals = document.querySelectorAll(".modal");
+  modals.forEach((modal) => {
+    modal.style.display = "block";
+    modal.classList.add("in");
+  });
+});

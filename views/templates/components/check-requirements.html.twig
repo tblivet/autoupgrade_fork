@@ -22,7 +22,6 @@
 
 			<div class="check-requirements__list">
         {# ERROR #}
-
 				{# Check for PHP compatibility error #}
 				{% if phpRequirementsState and phpRequirementsState != constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_VALID') %}
 					{% if phpRequirementsState == constant('PrestaShop\\Module\\AutoUpgrade\\UpgradeSelfCheck::PHP_REQUIREMENTS_INVALID') %}
@@ -180,7 +179,6 @@
         {% endif %}
 
         {# WARNING #}
-
         {# Check if the module is up to date #}
         {% if not moduleIsUpToDate %}
           <div class="check-requirements__requirement check-requirements__requirement--warning">

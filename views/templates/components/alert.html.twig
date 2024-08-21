@@ -5,7 +5,7 @@
 				<p class="alert__title">{{ title }}</p>
 			{% endif %}
 			{% if message %}
-				<p class="alert__message">{{ message }}</p>
+				<p class="alert__message">{{ message|raw }}</p>
 			{% endif %}
 		</div>
 

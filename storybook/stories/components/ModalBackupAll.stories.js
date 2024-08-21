@@ -23,44 +23,18 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import RenderSelect from "../../../views/templates/components/render-select.html.twig";
+import ModalBackup from "../../../views/templates/modals/modal-backup-all.html.twig";
+import Modal from "./Modal.stories";
 
 export default {
-  title: "Components/Render Fields",
-  component: RenderSelect,
-  argTypes: {
-    type: {
-      control: "select",
-      options: [
-        "disabled",
-        "bool",
-        "radio",
-        "select",
-        "textarea",
-        "container",
-        "container_end",
-        "text",
-      ],
-      defaultValue: "select",
-    },
-  },
+  title: "Components/Modal",
+  component: ModalBackup,
   args: {
-    field: {
-      id: "switch_theme",
-      title: "Switch the theme",
-      desc: "Custom themes may cause compatibility issues. We recommend using a default theme during the update and change it afterwards.",
-      choices: {
-        0: "Keep the actual theme",
-        1: "Upgrade the default theme",
-        2: "Do nothing",
-      },
-      type: "select",
-      required: true,
-      disabled: false,
-    },
-    key: "PS_AUTOUP_SWITCH_THEME",
-    val: "1",
+    ...Modal.args,
+    title: "Start backup?",
+    message: "Your files, database, and images will be backed up.",
+    modalSize: "md",
   },
 };
 
-export const Select = {};
+export const BackupWithImg = {};

@@ -28,6 +28,8 @@ $e: ".alert";
       font-size: 0.875rem;
       line-height: 1.4;
       color: var(--#{$ua-prefix}base-text-color);
+      word-break: break-word;
+      word-wrap: break-word;
     }
 
     &__infos {

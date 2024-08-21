@@ -21,12 +21,20 @@
             {% endblock %}
           </div>
 
-          <div class="page__buttons">
-            {% block buttons %}
-              {# Default buttons or leave empty for child templates to provide #}
-            {% endblock %}
-          </div>
+          {% block buttons %}
+            <div class="page__buttons">
+              {% block buttons_inner %}
+                {# Default buttons or leave empty for child templates to provide #}
+              {% endblock %}
+            </div>
+          {% endblock %}
         {% endblock %}
+      </div>
+    {% endblock %}
+
+    {% block privacy %}
+      <div id="ua__privacy">
+        {% include '@ModuleAutoUpgrade/components/privacy.html.twig' %}
       </div>
     {% endblock %}
   </div>

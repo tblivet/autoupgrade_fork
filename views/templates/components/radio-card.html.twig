@@ -33,16 +33,20 @@
 
     <p class="radio-card__message">{{ message }}</p>
 
-    {% if archiveCard %}
-      <div class="radio-card__local-archive">
-        {% include '@ModuleAutoUpgrade/components/local-archive.html.twig' %}
-      </div>
-    {% endif %}
+    {% if not disabled %}
+      {% if checked %}
+        {% if archiveCard %}
+          <div class="radio-card__local-archive">
+            {% include '@ModuleAutoUpgrade/components/local-archive.html.twig' %}
+          </div>
+        {% endif %}
 
-    {% if checkRequirements %}
-      <div class="radio-card__check-requirements">
-        {% include '@ModuleAutoUpgrade/components/check-requirements.html.twig' %}
-      </div>
+        {% if checkRequirements %}
+          <div class="radio-card__check-requirements">
+            {% include '@ModuleAutoUpgrade/components/check-requirements.html.twig' %}
+          </div>
+        {% endif %}
+      {% endif %}
     {% endif %}
   </div>
 </label>

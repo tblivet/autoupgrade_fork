@@ -4,6 +4,9 @@ $e: ".welcome-page";
 
 #{$ua-id} {
   #{$e} {
-    
+    &__card-list {
+      display: grid;
+      gap: 0.5rem;
+    }
   }
 }

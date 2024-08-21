@@ -23,44 +23,47 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import RenderSelect from "../../../views/templates/components/render-select.html.twig";
+import VersionChoiceLayout from "../../../views/templates/layouts/version-choice.html.twig";
+import LocalArchive from "../components/LocalArchive.stories";
+import RadioCard from "../components/RadioCard.stories";
+import Stepper from "../components/Stepper.stories";
 
 export default {
-  title: "Components/Render Fields",
-  component: RenderSelect,
-  argTypes: {
-    type: {
-      control: "select",
-      options: [
-        "disabled",
-        "bool",
-        "radio",
-        "select",
-        "textarea",
-        "container",
-        "container_end",
-        "text",
-      ],
-      defaultValue: "select",
-    },
-  },
+  title: "Layouts/Pages/Version choice", // Title for the Storybook category
+  component: VersionChoiceLayout, // Default component
   args: {
-    field: {
-      id: "switch_theme",
-      title: "Switch the theme",
-      desc: "Custom themes may cause compatibility issues. We recommend using a default theme during the update and change it afterwards.",
-      choices: {
-        0: "Keep the actual theme",
-        1: "Upgrade the default theme",
-        2: "Do nothing",
+    psBaseUri: "/",
+    upToDate: true,
+    noLocalArchive: true,
+    currentPrestashopVersion: "8.1.6",
+    currentPhpVersion: "8.1",
+    ...RadioCard.args,
+    ...LocalArchive.args,
+    ...Stepper.args,
+    steps: [
+      {
+        state: "current",
+        title: "Version choice",
       },
-      type: "select",
-      required: true,
-      disabled: false,
-    },
-    key: "PS_AUTOUP_SWITCH_THEME",
-    val: "1",
+      {
+        state: "normal",
+        title: "Update options",
+      },
+      {
+        state: "normal",
+        title: "Backup",
+      },
+      {
+        state: "normal",
+        title: "Update",
+      },
+      {
+        state: "normal",
+        title: "Post-update",
+      },
+    ],
   },
 };
 
-export const Select = {};
+// Default story for PageLayout
+export const Default = {};

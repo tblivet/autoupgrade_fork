@@ -39,7 +39,8 @@ export default {
     radioCardId: "",
     checked: false,
     title: "Update your store",
-    message: "Update your store to benefit from the latest improvements, bug fixes and security patches.",
+    message:
+      "Update your store to benefit from the latest improvements, bug fixes and security patches.",
     disabled: false,
     disabledMessage: "No backup file found on your store.",
     badgeLabel: "Major version",
@@ -53,3 +54,48 @@ export default {
 };
 
 export const Default = {};
+
+export const Archive = {
+  args: {
+    radioCardId: "",
+    checked: true,
+    title: "Local archive",
+    message:
+      "Save the archive file of the version you want to update to in the following directory: /admin/autoUpdate/download/",
+    disabled: false,
+    disabledMessage: "No backup file found on your store.",
+    badgeLabel: "",
+    releaseNote: "",
+    archiveCard: true,
+    checkRequirements: false,
+    ...LocalArchive.args,
+    ...CheckRequirements.args,
+  },
+};
+
+export const Requirements = {
+  args: {
+    checked: true,
+    checkRequirements: true,
+    ...LocalArchive.args,
+    ...CheckRequirements.args,
+    requirementsOk: false,
+    checkingForRequirements: false,
+  },
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const radioCards = document.querySelectorAll(
+    '.radio-card input[type="radio"]',
+  );
+
+  radioCards.forEach((radio) => {
+    radio.addEventListener("click", function () {
+      radioCards.forEach((radio) => {
+        if (radio !== this) {
+          radio.checked = false;
+        }
+      });
+    });
+  });
+});

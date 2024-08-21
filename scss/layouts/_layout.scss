@@ -4,14 +4,35 @@ $e: "#ua";
 
 #{$e} {
   &__main {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+    padding-block: 1rem;
+    container-type: inline-size;
+    container-name: ua-main;
   }
 
   &__container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     padding: 4rem;
     background-color: var(--#{$ua-prefix}white);
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__privacy {
+    text-align: center;
+  }
+
+  @container ua-main (max-width: 700px) {
+    &__container {
+      padding: 2rem;
+    }
   }
 }

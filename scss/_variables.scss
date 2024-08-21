@@ -31,8 +31,13 @@ $cdk-prefix: "cdk-";
   /* Global */
   --#{$ua-prefix}border-radius: 0;
   --#{$ua-prefix}base-text-color: var(--#{$ua-prefix}primary-800);
+  --#{$ua-prefix}base-text-color-hover: var(--#{$ua-prefix}primary-700);
   --#{$ua-prefix}disabled-color: var(--#{$ua-prefix}primary-500);
   --#{$ua-prefix}border-color: var(--#{$ua-prefix}primary-400);
+  --#{$ua-prefix}box-shadow-modal: var(
+    --#{$cdk-prefix}box-shadow-pop-modal,
+    0 12px 24px rgb(0 0 0 / 0.1)
+  );
   --#{$ua-prefix}required-color: var(--#{$ua-prefix}red-500);
   --#{$ua-prefix}primary: var(--#{$ua-prefix}primary-800);
   --#{$ua-prefix}primary-hover: var(--#{$ua-prefix}primary-700);

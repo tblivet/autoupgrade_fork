@@ -108,6 +108,8 @@ $e: ".radio-card";
       margin-block: 0.5rem 0;
       font-size: 0.875rem;
       color: var(--#{$ua-prefix}radio-card-message-color);
+      word-break: break-word;
+      word-wrap: break-word;
     }
 
     &__release-note {
