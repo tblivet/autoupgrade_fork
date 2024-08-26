@@ -3,7 +3,7 @@
 {% block page_class %}version-page{% endblock %}
 
 {% block title %}
-	<h1 class="h2">Version choice</h1>
+	<h1 class="h2">{{ 'Version choice'|trans({}) }}</h1>
 {% endblock %}
 
 {% block content %}
@@ -15,12 +15,12 @@
 
 			<p class="up-to-date__title text-success {% if noLocalArchive %} h2 {% else %} h3 {% endif %}">
 				<i class="material-icons">check_circle</i>
-				You’re up to date
+				{{ 'You’re up to date'|trans({}) }}
 			</p>
 
       <p class="up-to-date__message">
-        Current PrestaShop version: {{ currentPrestashopVersion }}<br/>
-        Current PHP version: {{ currentPhpVersion }}
+        {{ 'Current PrestaShop version:'|trans({}) }} {{ currentPrestashopVersion }}<br/>
+        {{ 'Current PHP version:'|trans({}) }} {{ currentPhpVersion }}
       </p>
 		</div>
 
@@ -35,7 +35,7 @@
     {% else %}
       <div class="version-page__local-archive">
         <p class="version-page__local-archive-message">
-          You are already using the latest PrestaShop version available but you can update to the version of your choice from a local archive.
+          {{ 'You are already using the latest PrestaShop version available but you can update to the version of your choice from a local archive.'|trans({}) }}
         </p>
 
         {% include '@ModuleAutoUpgrade/components/radio-card.html.twig' with {
@@ -54,23 +54,23 @@
   {% else %}
     <div class="not-up-to-date">
 			<p class="not-up-to-date__title h3">
-				A more recent version is available
+        {{ 'A more recent version is available'|trans({}) }}
 			</p>
 
       <p class="not-up-to-date__message">
-        Current PrestaShop version: {{ currentPrestashopVersion }}<br/>
-        Current PHP version: {{ currentPhpVersion }}
+        {{ 'Current PrestaShop version:'|trans({}) }} {{ currentPrestashopVersion }}<br/>
+        {{ 'Current PHP version:'|trans({}) }} {{ currentPhpVersion }}
       </p>
 
       {% if not noLocalArchive %}
         <p>
           <strong>
-            Select version
+            {{ 'Select version:'|trans({}) }}
           </strong>
         </p>
 
         <p>
-          A more recent version of PrestaShop is available. You can also use a local archive.
+          {{ 'A more recent version of PrestaShop is available. You can also use a local archive.'|trans({}) }}
         </p>
       {% endif %}
 		</div>
@@ -118,7 +118,7 @@
 {% block buttons_inner %}
 	{% if ( upToDate and not noLocalArchive ) or ( not upToDate ) %}
 		<button class="btn btn-lg btn-primary" type="button" {% if unableToFindVersion or unableToFindVersionInXML %} disabled {% endif %}>
-			Next
+			{{ 'Next'|trans({}) }}
 			<i class="material-icons">
 				arrow_forward
 			</i>
