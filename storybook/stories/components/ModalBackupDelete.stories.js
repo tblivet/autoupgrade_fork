@@ -23,33 +23,19 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import Modal from "../../../views/templates/components/modal.html.twig";
+import ModalBackupDelete from "../../../views/templates/modals/modal-backup-delete.html.twig";
+import Modal from "./Modal.stories";
 
 export default {
   title: "Components/Modal",
-  component: Modal,
-  argTypes: {
-    modalSize: {
-      control: "select",
-      options: ["sm", "md", "lg"],
-    },
-  },
+  component: ModalBackupDelete,
   args: {
-    modalId: "modal_id",
-    title: "Title goes here",
-    message: "Message goes here, lorem ipsum dolor site amet",
+    ...Modal.args,
+    title: "Delete backup",
+    message: "You are about to delete the <b>autoupgrade_save_8.1.6</b> backup made on <b>15/07/2024 8:00</b>. As it's your only backup, you will be redirected to the module's home page.",
     modalSize: "lg",
-    psBaseUri: "/",
-    modalDanger: false,
+    modalDanger: true,
   },
 };
 
-export const Default = {};
-
-document.addEventListener("DOMContentLoaded", () => {
-  const modals = document.querySelectorAll(".modal");
-  modals.forEach((modal) => {
-    modal.style.display = "block";
-    modal.classList.add("in");
-  });
-});
+export const BackupDelete = {};

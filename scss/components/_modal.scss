@@ -7,13 +7,14 @@ $e: ".modal";
     &-content {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 1.5rem;
       border: none;
       box-shadow: var(--#{$ua-prefix}box-shadow-modal);
     }
 
     &-header {
       display: flex;
+      gap: 1rem;
       align-items: center;
       width: 100%;
       padding: 1.5rem;
@@ -42,7 +43,7 @@ $e: ".modal";
     &-body {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 1.5rem;
       padding-block: 0;
       padding-inline: 1.5rem;
       font-size: 1rem;
@@ -73,6 +74,25 @@ $e: ".modal";
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+    }
+
+    &--danger {
+      #{$e}-header {
+        &::before {
+          content: "\e872";
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          background-color: var(--#{$ua-prefix}red-50);
+          border-radius: 999px;
+          font-family: var(--#{$ua-prefix}font-family-material-icons);
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+      }
     }
   }
 }
