@@ -26,7 +26,7 @@
 import RenderBool from "../../../views/templates/components/render-bool.html.twig";
 
 export default {
-  title: "Components/Render Fields",
+  title: "Components/Render fields",
   component: RenderBool,
   argTypes: {
     type: {

@@ -23,29 +23,28 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import LocalArchive from "../../../views/templates/components/local-archive.html.twig";
+import BackupSelectionLayout from "../../../views/templates/layouts/backup-selection.html.twig";
+import BackupSelection from "../components/BackupSelection.stories";
 
 export default {
-  component: LocalArchive,
-  title: "Components/Local archive",
+  component: BackupSelectionLayout,
+  title: "Layouts/Pages/Backup selection",
   args: {
-    archiveFiles: [
-      "backup1.zip",
-      "backup2.zip",
-      "backup3.zip"
+    ...BackupSelection.args,
+    steps: [
+      {
+        state: "current",
+        title: "Backup selection",
+      },
+      {
+        state: "normal",
+        title: "Restore",
+      },
+      {
+        state: "normal",
+        title: "Post-restore",
+      },
     ],
-    archiveFileName: "backup1.zip",
-    xmlFiles: [
-      "xml1.xml",
-      "xml2.xml",
-      "xml2.xml"
-    ],
-    xmlFileName: "xml1.xml",
-    downloadPath:
-      "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
-    unableToFindVersion: false,
-    unableToFindVersionInXML: false,
-    versionsMismatch: false,
   },
 };
 

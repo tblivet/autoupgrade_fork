@@ -27,12 +27,11 @@ import WelcomeLayout from "../../../views/templates/layouts/welcome.html.twig";
 import RadioCard from "../components/RadioCard.stories";
 
 export default {
-  title: "Layouts/Pages/Welcome", // Title for the Storybook category
-  component: WelcomeLayout, // Default component
+  component: WelcomeLayout,
+  title: "Layouts/Pages/Welcome",
   args: {
     ...RadioCard.args,
   },
 };
 
-// Default story for PageLayout
 export const Default = {};

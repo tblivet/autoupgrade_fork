@@ -27,6 +27,7 @@ import CheckRequirements from "../../../views/templates/components/check-require
 
 export default {
   component: CheckRequirements,
+  title: "Components/Check requirements",
   args: {
     requirementsOk: true,
     checkingForRequirements: true,

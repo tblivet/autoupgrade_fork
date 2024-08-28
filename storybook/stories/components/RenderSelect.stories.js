@@ -26,7 +26,7 @@
 import RenderSelect from "../../../views/templates/components/render-select.html.twig";
 
 export default {
-  title: "Components/Render Fields",
+  title: "Components/Render fields",
   component: RenderSelect,
   argTypes: {
     type: {

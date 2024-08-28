@@ -26,11 +26,10 @@
 import VersionChoiceLayout from "../../../views/templates/layouts/version-choice.html.twig";
 import LocalArchive from "../components/LocalArchive.stories";
 import RadioCard from "../components/RadioCard.stories";
-import Stepper from "../components/Stepper.stories";
 
 export default {
-  title: "Layouts/Pages/Version choice", // Title for the Storybook category
-  component: VersionChoiceLayout, // Default component
+  component: VersionChoiceLayout,
+  title: "Layouts/Pages/Version choice",
   args: {
     psBaseUri: "/",
     upToDate: true,
@@ -39,7 +38,6 @@ export default {
     currentPhpVersion: "8.1",
     ...RadioCard.args,
     ...LocalArchive.args,
-    ...Stepper.args,
     steps: [
       {
         state: "current",
@@ -65,5 +63,4 @@ export default {
   },
 };
 
-// Default story for PageLayout
 export const Default = {};

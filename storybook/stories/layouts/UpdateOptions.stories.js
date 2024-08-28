@@ -24,13 +24,11 @@
  */
 
 import UpdateOptionsLayout from "../../../views/templates/layouts/update-options.html.twig";
-import Stepper from "../components/Stepper.stories";
 
 export default {
-  title: "Layouts/Pages/Update options", // Title for the Storybook category
-  component: UpdateOptionsLayout, // Default component
+  component: UpdateOptionsLayout,
+  title: "Layouts/Pages/Update options",
   args: {
-    ...Stepper.args,
     steps: [
       {
         state: "done",
@@ -56,5 +54,4 @@ export default {
   },
 };
 
-// Default story for PageLayout
 export const Default = {};

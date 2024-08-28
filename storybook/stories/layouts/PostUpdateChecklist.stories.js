@@ -24,18 +24,16 @@
  */
 
 import PostUpdateChecklistLayout from "../../../views/templates/layouts/post-update-checklist.html.twig";
-import Stepper from "../components/Stepper.stories";
 
 export default {
-  title: "Layouts/Pages/Post update checklist", // Title for the Storybook category
-  component: PostUpdateChecklistLayout, // Default component
+  component: PostUpdateChecklistLayout,
+  title: "Layouts/Pages/Post update checklist",
   args: {
     psBaseUri: "/",
     upToDate: true,
     noLocalArchive: true,
     currentPrestashopVersion: "8.1.6",
     currentPhpVersion: "8.1",
-    ...Stepper.args,
     steps: [
       {
         state: "done",
@@ -61,5 +59,4 @@ export default {
   },
 };
 
-// Default story for PageLayout
 export const Default = {};

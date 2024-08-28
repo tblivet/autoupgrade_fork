@@ -11,6 +11,7 @@ $cdk-prefix: "cdk-";
   --#{$ua-prefix}black: #000000;
   --#{$ua-prefix}primary-800: var(--#{$cdk-prefix}primary-800, #1d1d1b);
   --#{$ua-prefix}primary-700: var(--#{$cdk-prefix}primary-700, #3f3f3d);
+  --#{$ua-prefix}primary-600: var(--#{$cdk-prefix}primary-600, #5e5e5e);
   --#{$ua-prefix}primary-500: var(--#{$cdk-prefix}primary-500, #bbbbbb);
   --#{$ua-prefix}primary-400: var(--#{$cdk-prefix}primary-400, #dddddd);
   --#{$ua-prefix}primary-200: var(--#{$cdk-prefix}primary-200, #f7f7f7);

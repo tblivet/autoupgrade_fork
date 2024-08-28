@@ -27,6 +27,7 @@ import Stepper from "../../../views/templates/components/stepper.html.twig";
 
 export default {
   component: Stepper,
+  title: "Components/Stepper",
   args: {
     steps: [
       {

@@ -23,29 +23,18 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import LocalArchive from "../../../views/templates/components/local-archive.html.twig";
+import BackupSelection from "../../../views/templates/components/backup-selection.html.twig";
 
 export default {
-  component: LocalArchive,
-  title: "Components/Local archive",
+  component: BackupSelection,
+  title: "Components/Backup selection",
   args: {
-    archiveFiles: [
-      "backup1.zip",
-      "backup2.zip",
-      "backup3.zip"
+    availableBackups: [
+      "autoupgrade_save_8.1.6 - 15/07/2024 8:00",
+      "autoupgrade_save_8.1.6 - 05/07/2024 16:30",
+      "autoupgrade_save_8.1.6 - 12/04/2024 22:10",
     ],
-    archiveFileName: "backup1.zip",
-    xmlFiles: [
-      "xml1.xml",
-      "xml2.xml",
-      "xml2.xml"
-    ],
-    xmlFileName: "xml1.xml",
-    downloadPath:
-      "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
-    unableToFindVersion: false,
-    unableToFindVersionInXML: false,
-    versionsMismatch: false,
+    showDelete: false,
   },
 };
 

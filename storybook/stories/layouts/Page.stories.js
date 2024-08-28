@@ -27,12 +27,11 @@ import PageLayout from "../../../views/templates/layouts/page.html.twig";
 import Stepper from "../components/Stepper.stories";
 
 export default {
-  title: "Layouts/Pages/Base", // Title for the Storybook category
-  component: PageLayout, // Default component
+  component: PageLayout,
+  title: "Layouts/Pages/Base",
   args: {
-    ...Stepper.args, // Default args spread from Stepper if needed
+    ...Stepper.args,
   },
 };
 
-// Default story for PageLayout
 export const Default = {};

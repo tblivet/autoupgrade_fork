@@ -27,6 +27,7 @@ import Alert from "../../../views/templates/components/alert.html.twig";
 
 export default {
   component: Alert,
+  title: "Components/Alert",
   argTypes: {
     alertStatus: {
       control: "select",

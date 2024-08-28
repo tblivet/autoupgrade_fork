@@ -29,6 +29,7 @@ import CheckRequirements from "./CheckRequirements.stories";
 
 export default {
   component: RadioCard,
+  title: "Components/Radio card",
   argTypes: {
     badgeStatus: {
       control: "select",

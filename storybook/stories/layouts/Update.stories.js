@@ -23,29 +23,38 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import LocalArchive from "../../../views/templates/components/local-archive.html.twig";
+import UpdateLayout from "../../../views/templates/layouts/update.html.twig";
+import LogsProgress from "../components/LogsProgress.stories";
+import Logs from "../components/Logs.stories";
 
 export default {
-  component: LocalArchive,
-  title: "Components/Local archive",
+  component: UpdateLayout,
+  title: "Layouts/Pages/Update",
   args: {
-    archiveFiles: [
-      "backup1.zip",
-      "backup2.zip",
-      "backup3.zip"
+    ...LogsProgress.args,
+    ...Logs.args,
+    steps: [
+      {
+        state: "done",
+        title: "Version choice",
+      },
+      {
+        state: "done",
+        title: "Update options",
+      },
+      {
+        state: "done",
+        title: "Backup",
+      },
+      {
+        state: "current",
+        title: "Update",
+      },
+      {
+        state: "normal",
+        title: "Post-update",
+      },
     ],
-    archiveFileName: "backup1.zip",
-    xmlFiles: [
-      "xml1.xml",
-      "xml2.xml",
-      "xml2.xml"
-    ],
-    xmlFileName: "xml1.xml",
-    downloadPath:
-      "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
-    unableToFindVersion: false,
-    unableToFindVersionInXML: false,
-    versionsMismatch: false,
   },
 };
 

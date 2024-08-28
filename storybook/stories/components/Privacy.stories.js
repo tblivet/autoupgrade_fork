@@ -27,6 +27,7 @@ import Privacy from "../../../views/templates/components/privacy.html.twig";
 
 export default {
   component: Privacy,
+  title: "Components/Privacy",
 };
 
 export const Default = {};

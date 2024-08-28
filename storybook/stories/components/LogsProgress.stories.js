@@ -23,30 +23,15 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import LocalArchive from "../../../views/templates/components/local-archive.html.twig";
+import LogsProgress from "../../../views/templates/components/logs-progress.html.twig";
 
 export default {
-  component: LocalArchive,
-  title: "Components/Local archive",
+  component: LogsProgress,
+  title: "Components/Logs progress",
   args: {
-    archiveFiles: [
-      "backup1.zip",
-      "backup2.zip",
-      "backup3.zip"
-    ],
-    archiveFileName: "backup1.zip",
-    xmlFiles: [
-      "xml1.xml",
-      "xml2.xml",
-      "xml2.xml"
-    ],
-    xmlFileName: "xml1.xml",
-    downloadPath:
-      "/var/www/html/admin128ejliho1ih29s5ahu/autoupgrade/download/",
-    unableToFindVersion: false,
-    unableToFindVersionInXML: false,
-    versionsMismatch: false,
-  },
+    progressStatus: "Backup files in progress XX files left",
+    progressPercentage: 25,
+  }
 };
 
 export const Default = {};

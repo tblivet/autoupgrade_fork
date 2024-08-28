@@ -27,6 +27,7 @@ import Logs from "../../../views/templates/components/logs.html.twig";
 
 export default {
   component: Logs,
+  title: "Components/Logs",
   args: {
     logs: [
       {
