@@ -1,13 +1,13 @@
 @use "../variables" as *;
 
-$e: ".welcome-page";
+$e: ".backup-page";
 
 #{$ua-id} {
   #{$e} {
-    &__card-list {
+    &__container {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 2rem;
     }
   }
 }

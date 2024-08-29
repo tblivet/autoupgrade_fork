@@ -23,12 +23,12 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
 
-import BackupSelectionLayout from "../../../views/templates/layouts/backup-selection.html.twig";
+import RestoreLayout from "../../../views/templates/layouts/restore.html.twig";
 import BackupSelection from "../components/BackupSelection.stories";
 
 export default {
-  component: BackupSelectionLayout,
-  title: "Layouts/Pages/Backup selection",
+  component: RestoreLayout,
+  title: "Layouts/Pages/Restore",
   args: {
     ...BackupSelection.args,
     steps: [

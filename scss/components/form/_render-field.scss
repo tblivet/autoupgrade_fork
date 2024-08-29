@@ -35,6 +35,10 @@ $e: ".render-field";
       gap: 0.25rem;
     }
 
+    &--no-desc {
+      align-items: center;
+    }
+
     @container render-field (max-width: 400px) {
       &__infos {
         flex-basis: 100%;

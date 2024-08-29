@@ -5,7 +5,7 @@
 {% block page_class %}welcome-page{% endblock %}
 
 {% block title %}
-  <h1>Welcome to PrestaShop Update Assistant</h1>
+  <h1>{{ 'Welcome to PrestaShop Update Assistant'|trans({}) }}</h1>
 {% endblock %}
 
 {% block content %}
@@ -30,6 +30,6 @@
 
 {% block buttons_inner %}
   <button class="btn btn-lg btn-primary" type="button">
-    Get Started
+    {{ 'Get Started'|trans({}) }}
   </button>
 {% endblock %}
