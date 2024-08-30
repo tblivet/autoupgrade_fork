@@ -1,13 +1,13 @@
 {% block update_assistant %}
-  <div id="ua__main">
+  <div id="ua_main">
     {% block stepper %}
-      <div id="ua__stepper">
+      <div id="ua_stepper">
         {% include '@ModuleAutoUpgrade/components/stepper.html.twig' %}
       </div>
     {% endblock %}
 
     {% block container %}
-      <div id="ua__container" class="{% block page_class %}default-page{% endblock %}">
+      <div id="ua_container" class="{% block page_class %}default-page{% endblock %}">
         {% block container_inner %}
           <div class="page__title">
             {% block title %}
@@ -44,7 +44,7 @@
     {% endblock %}
 
     {% block privacy %}
-      <div id="ua__privacy">
+      <div id="ua_privacy">
         {% include '@ModuleAutoUpgrade/components/privacy.html.twig' %}
       </div>
     {% endblock %}
