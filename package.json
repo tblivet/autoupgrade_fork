@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "chrome-launcher": "^1.1.2",
+    "lighthouse": "^12.2.1",
+    "puppeteer": "^23.6.1"
+  },
+  "scripts": {
+    "auth": "node ./tests/accessibility/auth.mjs",
+    "accessibility": "npm run auth && lighthouse 'http://localhost:8001/admin-dev/index.php?controller=AdminSelfUpgrade&new-ui=1&route=home-page' --only-categories=accessibility --output html --output-path ./lighthouse-report.html --chrome-flags='--user-data-dir=./user-data'"
+  }
+}
