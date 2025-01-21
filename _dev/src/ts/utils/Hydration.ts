@@ -1,6 +1,8 @@
-import { ApiResponseHydration } from '../types/apiTypes';
+import { ApiError, ApiResponseHydration } from '../types/apiTypes';
 import { dialogContainer, routeHandler, scriptHandler } from '../autoUpgrade';
 import { ScriptType } from '../types/scriptHandlerTypes';
+import { AxiosError } from 'axios';
+import ErrorPage from '../pages/ErrorPage';
 
 export default class Hydration {
   /**
@@ -52,5 +54,13 @@ export default class Hydration {
 
       elementToUpdate.dispatchEvent(this.hydrationEvent);
     }
+  }
+
+  public hydrateError(error: ApiError): void {
+    scriptHandler.unloadScriptType(ScriptType.PAGE);
+    scriptHandler.loadScript('error-page');
+
+    const elementToUpdate = document.getElementById(ErrorPage.templateId);
+    elementToUpdate?.dispatchEvent(new CustomEvent(Hydration.hydrationEventName, {detail: error}));
   }
 }

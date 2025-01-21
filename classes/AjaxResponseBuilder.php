@@ -12,6 +12,7 @@ class AjaxResponseBuilder
     public static function hydrationResponse(string $parentToUpdate, string $newContent, ?array $options = []): JsonResponse
     {
         $arrayToReturn = [
+            'kind' => 'hydrate',
             'hydration' => true,
             'parent_to_update' => $parentToUpdate,
             'new_content' => $newContent,
@@ -31,6 +32,7 @@ class AjaxResponseBuilder
     public static function nextRouteResponse(string $nextRoute): JsonResponse
     {
         return new JsonResponse([
+            'kind' => 'next',
             'next_route' => $nextRoute,
         ]);
     }
