@@ -28,6 +28,7 @@
 namespace PrestaShop\Module\AutoUpgrade\Router;
 
 use PrestaShop\Module\AutoUpgrade\Controller\Error404Controller;
+use PrestaShop\Module\AutoUpgrade\Controller\ErrorGeneratorController;
 use PrestaShop\Module\AutoUpgrade\Controller\ErrorReportController;
 use PrestaShop\Module\AutoUpgrade\Controller\HomePageController;
 use PrestaShop\Module\AutoUpgrade\Controller\LogsController;
@@ -228,6 +229,23 @@ class Router
         Routes::ERROR_404 => [
             'controller' => Error404Controller::class,
             'method' => 'index',
+        ],
+
+        Routes::FAKE_ERROR_500 => [
+            'controller' => ErrorGeneratorController::class,
+            'method'=> 'generate500',
+        ],
+        Routes::FAKE_ERROR_502 => [
+            'controller' => ErrorGeneratorController::class,
+            'method'=> 'generate502',
+        ],
+        Routes::FAKE_INVALID_RESPONSE => [
+            'controller' => ErrorGeneratorController::class,
+            'method'=> 'generateBadResponse',
+        ],
+        Routes::FAKE_TIMEOUT => [
+            'controller' => ErrorGeneratorController::class,
+            'method' => 'generateTimeout',
         ],
     ];
 

@@ -27,36 +27,27 @@
 
 namespace PrestaShop\Module\AutoUpgrade\Controller;
 
-use PrestaShop\Module\AutoUpgrade\Router\Routes;
 use Symfony\Component\HttpFoundation\Response;
 
-class Error404Controller extends AbstractPageController
+class ErrorGeneratorController extends AbstractGlobalController
 {
-    public function index()
+    public function generate500(): Response
     {
-        $response = parent::index();
-
-        if ($response instanceof Response) {
-            $response->setStatusCode(Response::HTTP_NOT_FOUND);
-        } else {
-            http_response_code(Response::HTTP_NOT_FOUND);
-        }
-
-        return $response;
+        return new Response('Internal Server Error', 500);
     }
 
-    protected function getPageTemplate(): string
+    public function generate502(): Response
     {
-        return 'errors/' . Response::HTTP_NOT_FOUND;
+        return new Response('Bad gateway', 502);
     }
 
-    protected function getParams(): array
+    public function generateBadResponse(): Response
     {
-        return [
-            // TODO: assets_base_path is provided by all controllers. What about a asset() twig function instead?
-            'assets_base_path' => $this->upgradeContainer->getAssetsEnvironment()->getAssetsBaseUrl($this->request),
+        return new Response('[CONTENTS] Not a valid JSON, only a basic string');
+    }
 
-            'error_code' => Response::HTTP_NOT_FOUND,
-        ];
+    public function generateTimeout(): never
+    {
+        sleep(60);
     }
 }
