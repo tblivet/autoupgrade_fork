@@ -82,10 +82,11 @@ export class RequestHandler {
     }
   }
 
-  async #handleError(error: AxiosError): Promise<void> {
+  async #handleError(error: AxiosError<unknown, XMLHttpRequest>): Promise<void> {
     new Hydration().hydrateError({
       code: error.status,
       type: error.code,
+      requestParams: error.request,
       additionalContents: error.response?.data,
     });
   }

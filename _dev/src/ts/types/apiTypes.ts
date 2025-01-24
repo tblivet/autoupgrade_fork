@@ -30,6 +30,7 @@ interface ApiResponseAction {
 export interface ApiError {
   code?: number,
   type?: string,
+  requestParams?: XMLHttpRequest,
   additionalContents?: string|object
 }
 
