@@ -13,6 +13,11 @@ $e: ".error-page";
       padding: 4rem;
       background-color: var(--#{$ua-prefix}white);
       border: 1px solid var(--#{$ua-prefix}border-color);
+
+      &:has(#{$e}__code.hidden) {
+        grid-template-columns: auto;
+        place-content: center;
+      }
     }
 
     &__code {
@@ -49,13 +54,10 @@ $e: ".error-page";
     &__buttons {
       display: flex;
       gap: 1rem 2rem;
-    }
 
-    &__button {
-      padding: 0.875rem 1rem;
-      font-size: 0.875rem;
-      font-weight: 400;
-      white-space: initial;
+      .btn {
+        @extend %btn--error-page;
+      }
     }
 
     @container ua-error (max-width: 700px) {
@@ -74,10 +76,15 @@ $e: ".error-page";
 
       &__buttons {
         flex-direction: column;
-      }
 
-      &__button {
-        justify-content: center;
+        > * {
+          width: 100%;
+        }
+
+        .btn {
+          justify-content: center;
+          width: 100%;
+        }
       }
     }
   }
@@ -137,4 +144,13 @@ html {
       }
     }
   }
+}
+
+// Placeholder for buttons
+%btn--error-page {
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  white-space: initial;
 }
