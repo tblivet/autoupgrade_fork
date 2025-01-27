@@ -233,15 +233,15 @@ class Router
 
         Routes::FAKE_ERROR_500 => [
             'controller' => ErrorGeneratorController::class,
-            'method'=> 'generate500',
+            'method' => 'generate500',
         ],
         Routes::FAKE_ERROR_502 => [
             'controller' => ErrorGeneratorController::class,
-            'method'=> 'generate502',
+            'method' => 'generate502',
         ],
         Routes::FAKE_INVALID_RESPONSE => [
             'controller' => ErrorGeneratorController::class,
-            'method'=> 'generateBadResponse',
+            'method' => 'generateBadResponse',
         ],
         Routes::FAKE_TIMEOUT => [
             'controller' => ErrorGeneratorController::class,

@@ -27,7 +27,6 @@
 
 namespace PrestaShop\Module\AutoUpgrade\Controller;
 
-use PrestaShop\Module\AutoUpgrade\Router\Routes;
 use Symfony\Component\HttpFoundation\Response;
 
 class Error404Controller extends AbstractPageController

@@ -1,5 +1,5 @@
 import baseApi from './baseApi';
-import { ApiResponse, ApiResponseAction } from '../types/apiTypes';
+import { ApiResponse, ApiResponseAction, ApiResponseUnknown } from '../types/apiTypes';
 import Hydration from '../utils/Hydration';
 import { AxiosError } from 'axios';
 
@@ -21,11 +21,7 @@ export class RequestHandler {
    * @returns {Promise<void>}
    * @description Sends a POST request to the specified route with optional data and pop state indicator. Cancels any ongoing request before initiating a new one.
    */
-  public async post(
-    route: string,
-    data?: FormData,
-    fromPopState?: boolean
-  ): Promise<void> {
+  public async post(route: string, data?: FormData, fromPopState?: boolean): Promise<void> {
     this.abortCurrentPost();
 
     // Create a new AbortController for the current request (used to cancel previous request)
@@ -41,8 +37,8 @@ export class RequestHandler {
       const responseData = response.data;
       await this.#handleResponse(responseData, fromPopState);
     } catch (error) {
-      if (error) {
-        await this.#handleError(error as AxiosError);
+      if (error instanceof AxiosError) {
+        await this.#handleError(error);
       }
     }
   }
@@ -86,12 +82,12 @@ export class RequestHandler {
     }
   }
 
-  async #handleError(error: AxiosError<unknown, XMLHttpRequest>): Promise<void> {
+  async #handleError(error: AxiosError<ApiResponseUnknown, XMLHttpRequest>): Promise<void> {
     new Hydration().hydrateError({
       code: error.status,
       type: error.code,
       requestParams: error.request,
-      additionalContents: error.response?.data,
+      additionalContents: error.response?.data
     });
   }
 }
