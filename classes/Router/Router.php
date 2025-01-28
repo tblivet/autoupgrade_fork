@@ -230,23 +230,6 @@ class Router
             'controller' => Error404Controller::class,
             'method' => 'index',
         ],
-
-        Routes::FAKE_ERROR_500 => [
-            'controller' => ErrorGeneratorController::class,
-            'method' => 'generate500',
-        ],
-        Routes::FAKE_ERROR_502 => [
-            'controller' => ErrorGeneratorController::class,
-            'method' => 'generate502',
-        ],
-        Routes::FAKE_INVALID_RESPONSE => [
-            'controller' => ErrorGeneratorController::class,
-            'method' => 'generateBadResponse',
-        ],
-        Routes::FAKE_TIMEOUT => [
-            'controller' => ErrorGeneratorController::class,
-            'method' => 'generateTimeout',
-        ],
     ];
 
     /**
