@@ -28,7 +28,6 @@
 namespace PrestaShop\Module\AutoUpgrade\Router;
 
 use PrestaShop\Module\AutoUpgrade\Controller\Error404Controller;
-use PrestaShop\Module\AutoUpgrade\Controller\ErrorGeneratorController;
 use PrestaShop\Module\AutoUpgrade\Controller\ErrorReportController;
 use PrestaShop\Module\AutoUpgrade\Controller\HomePageController;
 use PrestaShop\Module\AutoUpgrade\Controller\LogsController;
